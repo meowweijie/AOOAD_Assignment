@@ -48,6 +48,7 @@
     <Compile Include="JuniorAgent.cs" />
     <Compile Include="Medical.cs" />
     <Compile Include="NormalAgent.cs" />
+    <Compile Include="Premium.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rider.cs" />
