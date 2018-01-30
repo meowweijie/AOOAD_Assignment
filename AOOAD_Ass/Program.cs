@@ -10,6 +10,7 @@ namespace AOOAD_Ass
     {
         static void Main(string[] args)
         {
+
         }
     }
 }
