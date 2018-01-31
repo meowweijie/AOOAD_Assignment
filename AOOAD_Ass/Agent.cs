@@ -8,12 +8,12 @@ namespace AOOAD_Ass
 {
     abstract class Agent
     {
-        private string agentId;
+        private string agentNo;
 
-        public string AgentId
+        public string AgentNo
         {
-            get { return agentId; }
-            set { agentId = value; }
+            get { return agentNo; }
+            set { agentNo = value; }
         }
 
         private float commission;

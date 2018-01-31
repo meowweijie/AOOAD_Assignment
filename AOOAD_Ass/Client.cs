@@ -6,11 +6,18 @@ using System.Threading.Tasks;
 
 namespace AOOAD_Ass
 {
-    class Program
+    class Client
     {
-        static void Main(string[] args)
+        private string clientNo;
+
+        public string ClientNo
         {
-            
+            get { return clientNo; }
+            set { clientNo = value; }
         }
+
+
+
+
     }
 }
