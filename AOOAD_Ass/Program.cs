@@ -13,7 +13,7 @@ namespace AOOAD_Ass
     {
         static void Main(string[] args)
         {
-            CreateInsurancePolicy();
+            CreatePolicy();
         }
 
         static void MainMenu()
@@ -22,8 +22,11 @@ namespace AOOAD_Ass
             Console.WriteLine("2. View all policies.");
         }
 
-        static void CreateInsurancePolicy()
+        static void CreatePolicy()
         {
+            int clientid;
+            Console.Write("Enter Client's ID: ");
+            clientid = Convert.ToInt32(Console.ReadLine());
             int option;
             string severity;
             Console.WriteLine("Types of Policies");
