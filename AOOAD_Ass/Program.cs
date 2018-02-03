@@ -76,15 +76,25 @@ namespace AOOAD_Ass
                             if(client != null)
                             {
                                 string type = ViewFilters();
-                                
+                                client.ViewPolicies(type);
                             }
                         }
                         else if (opt == 2)
                         {
+                            Agent agent = null;
                             string user = Convert.ToString(Console.ReadLine());
                             for (int i = 0; i < AgentList.Count; i++)
                             {
+                                if (AgentList[i].AgentNo == user)
+                                {
+                                    agent = AgentList[i];
+                                }
+                            }
 
+                            if (agent != null)
+                            {
+                                string type = ViewFilters();
+                                agent.ViewPolicies(type);
                             }
                         }
                     }

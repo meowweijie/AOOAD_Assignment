@@ -33,7 +33,7 @@ namespace AOOAD_Ass
 
         public void ViewPolicies(string type)
         {
-            
+            ownedPolicies.displayPolicy(type);
         }
 
 
