@@ -11,6 +11,7 @@ namespace AOOAD_Ass.State
     {
         void lapsePolicy();
         void activatePolicy();
+        void terminatePolicy();
         void terminatePolicy(bool penalty);
         void archivePolicy();
     }

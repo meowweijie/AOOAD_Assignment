@@ -10,19 +10,19 @@ namespace AOOAD_Ass.Policies
     abstract class Policy
     {
         //basic attributes
-        public string policyNo { get; set; }
-        public string termsCondition { get; set; }
-        public DateTime maturityDate { get; set; }
-        List<Rider> ridersList = new List<Rider>();
-        public bool payOut { get; set; }
-        public bool periodic { get; set; }
-        public float premium { get; set; }
+        public string PolicyNo { get; set; }
+        public string TermsCondition { get; set; }
+        public DateTime MaturityDate { get; set; }
+        List<Rider> RidersList = new List<Rider>();
+        public bool PayOut { get; set; }
+        public bool Periodic { get; set; }
+        public float Premium { get; set; }
 
         //Operations
         public abstract float calculatePayout();
         public void addRider(Rider rider)
         {
-            ridersList.Add(rider);
+            RidersList.Add(rider);
         }
 
         //states
@@ -31,6 +31,8 @@ namespace AOOAD_Ass.Policies
         private PolicyState lapsedState;
         private PolicyState terminatedState;
 
+
+        //Constructor
         public Policy()
         {
             activeState = new Active(this);
@@ -43,26 +45,37 @@ namespace AOOAD_Ass.Policies
         {
             this.state = state;
         }
+
         public void Lapsed()
         {
             state.lapsePolicy();
         }
+
         public void Activate()
         {
             state.activatePolicy();
         }
+
+        public void Terminate()
+        {
+            state.terminatePolicy();
+        }
+
         public void Terminate(bool penalty)
         {
             state.terminatePolicy(penalty);
         }
+
         public void Archive()
         {
             state.archivePolicy();
         }
+
         // My getters for the states so i dont have to keep recreating the objects inside my policyState
         public PolicyState getActiveState() { return activeState; }
         public PolicyState getLapsedState() { return lapsedState; }
         public PolicyState getTerminatedState() { return terminatedState; }
+
         // End of State Pattern methods
 
     }

@@ -19,6 +19,7 @@ namespace AOOAD_Ass
         static void MainMenu()
         {
             Console.WriteLine("1. Create Insurance Policy.");
+            Console.WriteLine("2. View all policies.");
         }
 
         static void CreateInsurancePolicy()
