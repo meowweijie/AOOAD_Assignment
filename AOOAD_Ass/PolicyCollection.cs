@@ -42,7 +42,7 @@ namespace AOOAD_Ass
             }
         }
 
-        public void displayPolicy(string type)
+        public void DisplayPolicy(string type)
         {
             PolicyIterator iter = CreateIterator(type);
             Policy policy;
@@ -51,6 +51,19 @@ namespace AOOAD_Ass
                 policy = iter.Next();
                 Console.WriteLine("{0} - Status: {1}", policy.PolicyNo, type);
             }
+        }
+
+        public Policy SearchPolicy(string id)
+        {
+            for (int i = 0; i < ownedPolicies.Count; i++)
+            {
+                if (ownedPolicies[i].PolicyNo == id)
+                {
+                    return ownedPolicies[i];
+                    
+                }
+            }
+            return null;
         }
     }
 }

@@ -40,7 +40,7 @@ namespace AOOAD_Ass
                 }
                 else if (option == 2)
                 {
-                    ViewPolicies();
+                    
                     int opt;
                     Console.WriteLine("View Policies options:");
                     Console.WriteLine("1. View all policies");
@@ -77,7 +77,18 @@ namespace AOOAD_Ass
                             {
                                 string type = ViewFilters();
                                 client.ViewPolicies(type);
+
+                                Console.WriteLine();
+                                Console.Write("Enter policy no. to view: ");
+                                string id = Console.ReadLine();
+
+                                Policy p = client.FindPolicy(id);
+
+                                PolicyMenu(p);
                             }
+
+                            
+
                         }
                         else if (opt == 2)
                         {
@@ -95,7 +106,17 @@ namespace AOOAD_Ass
                             {
                                 string type = ViewFilters();
                                 agent.ViewPolicies(type);
+
+                                Console.WriteLine();
+                                Console.Write("Enter policy no. to view: ");
+                                string id = Console.ReadLine();
+                                Policy p =  agent.FindPolicy(id);
+
+                                PolicyMenu(p);
                             }
+
+                            
+
                         }
                     }
                     else if (opt == 3)
@@ -191,10 +212,34 @@ namespace AOOAD_Ass
         }
 
 
-        static void ViewPolicies()
+        static void PolicyMenu(Policy p)
         {
             
-            
+
+            Console.WriteLine("1. Edit Policy");
+            Console.WriteLine("2. Generate Alert");
+            Console.WriteLine("3. Exit");
+
+            Console.WriteLine();
+
+            int opt = Convert.ToInt32(Console.ReadLine());
+            if (opt == 1)
+            {
+                
+            }
+            else if (opt == 2)
+            {
+                
+            }
+            else if (opt == 3)
+            {
+                
+            }
+            else
+            {
+                
+            }
+
         }
 
         static string ViewFilters()

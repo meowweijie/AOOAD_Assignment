@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using AOOAD_Ass.Iterator;
+
+using AOOAD_Ass.Policies;
 
 namespace AOOAD_Ass
 {
@@ -33,7 +34,12 @@ namespace AOOAD_Ass
 
         public void ViewPolicies(string type)
         {
-            ownedPolicies.displayPolicy(type);
+            ownedPolicies.DisplayPolicy(type);
+        }
+
+        public Policy FindPolicy(string id)
+        {
+             return ownedPolicies.SearchPolicy(id);
         }
 
 
