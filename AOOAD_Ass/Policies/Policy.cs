@@ -12,6 +12,7 @@ namespace AOOAD_Ass.Policies
         //basic attributes
         public string PolicyNo { get; set; }
         public string TermsCondition { get; set; }
+        public DateTime DueDate { get; set; }
         public DateTime MaturityDate { get; set; }
         List<Rider> RidersList = new List<Rider>();
         public bool PayOut { get; set; }
