@@ -48,27 +48,27 @@ namespace AOOAD_Ass.Policies
 
         public void Lapsed()
         {
-            state.lapsePolicy();
+            state.LapsePolicy();
         }
 
         public void Activate()
         {
-            state.activatePolicy();
+            state.ActivatePolicy();
         }
 
         public void Terminate()
         {
-            state.terminatePolicy();
+            state.TerminatePolicy();
         }
 
         public void Terminate(bool penalty)
         {
-            state.terminatePolicy(penalty);
+            state.TerminatePolicy(penalty);
         }
 
         public void Archive()
         {
-            state.archivePolicy();
+            state.ArchivePolicy();
         }
 
         // My getters for the states so i dont have to keep recreating the objects inside my policyState
