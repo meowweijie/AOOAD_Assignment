@@ -173,8 +173,8 @@ namespace AOOAD_Ass
             }
             if (option != 0)
             {
-                Console.WriteLine("Select terms and conditions: ");
-
+                Console.Write("Select terms and conditions: ");
+                terms = Console.ReadLine();
             }
             Console.WriteLine();
             Console.ReadKey();
