@@ -19,13 +19,13 @@ namespace AOOAD_Ass
             List<Policy> PolicyList = new List<Policy>();
             List<Client> ClientList = new List<Client>();
             List<Agent> AgentList = new List<Agent>();
-            List<Rider> riderList = new List<Rider>();
+            List<Rider> RiderList = new List<Rider>();
 
             Medical mpolicy = new Medical();
             Travel tpolicy = new Travel();
             Car cpolicy = new Car();
 
-            CreatePolicy();
+            CreatePolicy(PolicyList, RiderList);
             
 
             //Main Menu
@@ -141,12 +141,24 @@ namespace AOOAD_Ass
             Console.WriteLine();
             
         }
+
+        static void CreatePolicyMenu()
+        {
+            //Menu for the Policy
+            Console.WriteLine("Types of Policies");
+            Console.WriteLine("1. Medical Insurance Policy");
+            Console.WriteLine("2. Car Insurance Policy");
+            Console.WriteLine("2. Travel Insurance Policy");
+            Console.WriteLine("0. Exit");
+            Console.WriteLine("Select type of policy: ");
+        }
+
         static void initRiderList(List<Rider> riderList)
         {
 
         }
 
-        static void CreatePolicy()
+        static void CreatePolicy(List<Policy> policyList, List<Rider> riderList)
         {
             //Variables needed
             int clientid;
@@ -157,6 +169,7 @@ namespace AOOAD_Ass
             DateTime dueDate = new DateTime();
             string hasMaturityDate = "";
             DateTime maturityDate = new DateTime();
+            int rider = 0;
             bool periodic = false;
             bool payout = false;
             string premium = "";
@@ -166,14 +179,7 @@ namespace AOOAD_Ass
             //Before Policy
             Console.Write("Enter Client's ID: ");
             clientid = Convert.ToInt32(Console.ReadLine());
-     
-            //Menu for the Policy
-            Console.WriteLine("Types of Policies");
-            Console.WriteLine("1. Medical Insurance Policy");
-            Console.WriteLine("2. Car Insurance Policy");
-            Console.WriteLine("2. Travel Insurance Policy");
-            Console.WriteLine("0. Exit");
-            Console.WriteLine("Select type of policy: ");        
+            CreatePolicyMenu();
             option = Convert.ToInt32(Console.ReadLine());
 
             //Policy 
@@ -210,11 +216,12 @@ namespace AOOAD_Ass
                 policyType = "Travel";
                 Console.WriteLine("Terms and Conditions Test"); // Add the terms and condition thing here.
             }
-            else if(option == 0)
+            else if(option == 0) //Exit
             {
                 Console.WriteLine("Insurance Policy was not created.");
             }
-            if (option != 0)
+
+            if (option != 0) // Rest of Create Policy
             {
                 Console.Write("Select terms and conditions: ");
                 terms = Console.ReadLine();
@@ -225,7 +232,7 @@ namespace AOOAD_Ass
                     Console.Write("Enter the total cost of payment: ");
                     payment = Convert.ToInt32(Console.ReadLine());
                 }
-                else if (premium == "Periodic")
+                else if (premium == "Periodic") //When it is Periodic
                 {
                     Console.Write("Enter the number of months of payment: ");
                     months = Convert.ToInt32(Console.ReadLine());
@@ -237,19 +244,24 @@ namespace AOOAD_Ass
                 }
                 Console.Write("Does the policy have a maturity date?(Y/N): ");
                 hasMaturityDate = Console.ReadLine();
-                if(hasMaturityDate == "Y")
+                if(hasMaturityDate == "Y") // Have Maturity Date
                 {
                     Console.Write("Enter policy maturity date: ");
                     maturityDate = DateTime.Parse(Console.ReadLine());
                     Console.WriteLine("Policy holder will be given a lump sum payout.");
                 }
                 Console.Write("Does the policy have optional riders?(Y/N): ");
-                if(Console.ReadLine()== "Y")
+                if(Console.ReadLine()== "Y") //Optional Rider
                 {
                     for(int i = 0; i < riderList.Count; i++)
                     {
-                        Console.WriteLine
+                        Console.WriteLine(riderList[i]);
+                        Console.Write("Select your type of rider: ");
+                        rider = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine("Insurance coverage has increased.");
+                        //Should I increase the coverage here... or deduct later?
                     }
+
                 }
                 Console.WriteLine("ClientID: {0}", clientid);
                 Console.WriteLine("Policy Type: {0}", policyType);
@@ -269,18 +281,45 @@ namespace AOOAD_Ass
                 }
                 if (hasMaturityDate == "Y")
                     Console.WriteLine("Maturity Date: {0}", Convert.ToString(maturityDate));
-                if(riderList)
-                Console.WriteLine();
-                Console.WriteLine();
-                Console.WriteLine();
-                Console.WriteLine();
-                Console.WriteLine();
-                Console.WriteLine();
+                if(rider!=0)
+                {
+                    for(int i = 0; i < riderList.Count; i++)
+                    Console.WriteLine("Rider: {0}", riderList[i].riderType);
+                }
+                Console.Write("Confirm creation of policy?(Y/N): ");
+                if(Console.ReadLine() == "Y")
+                {
+                    Console.WriteLine("Insurance Policy created.");
+                    if(option == 1) //Medical
+                    {
+                        for (int i = 0; i < policyList.Count; i++)
+                        {
+                            Policy p = new Medical(policyList[i], severity);
+                        }
+                    }
+                    else if (option == 2) //Car
+                    {
+                        for (int i = 0; i < policyList.Count; i++)
+                        {
+                            Policy p = new Car(policyList[i]);
+                        }
+                    }
+                    else if (option == 3) //Travel
+                    {
+                        for (int i = 0; i < policyList.Count; i++)
+                        {
+                            Policy p = new Travel(policyList[i]);
+                        }
+                    }
+                    payout = true;
+                }
+                else
+                {
+                    Console.WriteLine("Insurance Policy was not created.");
+                }
             }
-            Console.WriteLine();
             Console.ReadKey();
         }
-
 
         static void PolicyMenu(Policy p)
         {
