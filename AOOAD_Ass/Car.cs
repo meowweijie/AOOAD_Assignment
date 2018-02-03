@@ -8,5 +8,9 @@ namespace AOOAD_Ass
 {
     class Car:Policy
     {
+        float calculatePayout()
+        {
+
+        }
     }
 }

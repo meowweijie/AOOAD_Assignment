@@ -8,5 +8,7 @@ namespace AOOAD_Ass
 {
     class Rider
     {
+        public string riderType { get; set; }
+        public int amount { get; set; }
     }
 }

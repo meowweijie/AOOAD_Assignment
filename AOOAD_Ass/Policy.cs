@@ -12,6 +12,44 @@ namespace AOOAD_Ass
         public string termsCondition { get; set; }
         public DateTime maturityDate { get; set; }
         public List<Rider> ridersList { get; set; }
-        public float payOut { get; set; }
+        public bool payOut { get; set; }
+        public bool periodic { get; set; }
+        public float premium { get; set; }
+
+        void Lapse()
+        {
+
+        }
+
+        void Activate()
+        {
+
+        }
+
+        void Terminate(bool penalty)
+        {
+
+        }
+
+        void Archive()
+        {
+
+        }
+
+        float calculatePayout()
+        {
+            float x = 5; //temp cause error is annoying
+            return x;
+        }
+
+        void addRider(Rider rider)
+        {
+
+        }
+
+        void generateAlert()
+        {
+
+        }
     }
 }
