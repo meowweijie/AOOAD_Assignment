@@ -124,14 +124,15 @@ namespace AOOAD_Ass
             //Variables needed
             int clientid;
             int option;
-            string severity;
-            string terms;
-            string hasMaturityDate;
+            string policyType = "";
+            string severity = "";
+            string terms = "";
+            string hasMaturityDate = "";
             DateTime maturityDate;
             bool periodic;
             bool payout;
             List<Rider> riderList = new List<Rider>();
-            string premium;
+            string premium = "";
             float payment;
             int months;
 
@@ -151,6 +152,7 @@ namespace AOOAD_Ass
             //Policy 
             if(option == 1) //Medical
             {
+                policyType = "Medical";
                 Console.Write("Enter Injury Severity(Low, Medium, High): ");
                 severity = Console.ReadLine();
                 if(severity == "Low")
@@ -173,10 +175,12 @@ namespace AOOAD_Ass
             }
             else if (option == 2) //Car
             {
+                policyType = "Car";
                 Console.WriteLine(); // Add the terms and condition thing here.
             }
             else if (option == 3) //Travel
             {
+                policyType = "Travel";
                 Console.WriteLine(); // Add the terms and condition thing here.
             }
             else if(option == 0)
@@ -209,6 +213,20 @@ namespace AOOAD_Ass
                     maturityDate = Convert.ToDateTime(Console.ReadLine());
                     Console.WriteLine("Policy holder will be given a lump sum payout.");
                 }
+                Console.WriteLine("ClientID: {0}", clientid);
+                Console.WriteLine("Policy Type: {0}", policyType);
+                if(policyType == "Medical")
+                {
+                    Console.WriteLine("Severity: {0}", severity);
+                }
+                Console.WriteLine();
+                Console.WriteLine();
+                Console.WriteLine();
+                Console.WriteLine();
+                Console.WriteLine();
+                Console.WriteLine();
+                Console.WriteLine();
+
             }
             Console.WriteLine();
             Console.ReadKey();
