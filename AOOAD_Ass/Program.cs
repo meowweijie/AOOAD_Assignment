@@ -36,6 +36,7 @@ namespace AOOAD_Ass
         static void CreateInsurancePolicy()
         {
             int option;
+            string severity;
             Console.WriteLine("Types of Policies");
             Console.WriteLine("1. Medical Insurance Policy");
             Console.WriteLine("2. Car Insurance Policy");
@@ -43,9 +44,34 @@ namespace AOOAD_Ass
             Console.WriteLine("0. Exit");
             Console.WriteLine("Select type of policy: ");        
             option = Convert.ToInt32(Console.ReadLine());
-            if(option == 1)
+            if(option == 1) //Medical
+            {
+                Console.Write("Enter Injury Severity(Low, Medium, High): ");
+                severity = Console.ReadLine();
+                if(severity == "Low")
+                {
+
+                }
+                else if (severity == "Medium")
+                {
+
+                }
+                else if (severity == "High")
+                {
+
+                }
+            }
+            else if (option == 2) //Car
             {
 
+            }
+            else if (option == 3) //Travel
+            {
+
+            }
+            else if(option == 0)
+            {
+                Console.WriteLine("Insurance Policy was not created.");
             }
             Console.WriteLine();
             Console.ReadKey();
