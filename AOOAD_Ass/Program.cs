@@ -116,12 +116,14 @@ namespace AOOAD_Ass
             int option;
             string severity;
             string terms;
+            string hasMaturityDate;
             DateTime maturityDate;
             bool periodic;
             bool payout;
             List<Rider> riderList = new List<Rider>();
-            float premium;
-
+            string premium;
+            float payment;
+            int months;
 
             //Before Policy
             Console.Write("Enter Client's ID: ");
@@ -175,6 +177,28 @@ namespace AOOAD_Ass
             {
                 Console.Write("Select terms and conditions: ");
                 terms = Console.ReadLine();
+                Console.Write("Select type of premium(One-time/Periodic): ");
+                premium = Console.ReadLine();
+                if (premium == "One-time")
+                {
+                    Console.Write("Enter the total cost of payment: ");
+                    payment = Convert.ToInt32(Console.ReadLine());
+                }
+                else if (premium == "Periodic")
+                {
+                    Console.Write("Enter the number of months of payment: ");
+                    months = Convert.ToInt32(Console.ReadLine());
+                    Console.Write("Enter payment to be made each month: ");
+                    payment = Convert.ToInt32(Console.ReadLine());
+                }
+                Console.Write("Does the policy have a maturity date?(Y/N): ");
+                hasMaturityDate = Console.ReadLine();
+                if(hasMaturityDate == "Y")
+                {
+                    Console.Write("Enter policy maturity date: ");
+                    maturityDate = Convert.ToDateTime(Console.ReadLine());
+                    Console.WriteLine("Policy holder will be given a lump sum payout.");
+                }
             }
             Console.WriteLine();
             Console.ReadKey();
