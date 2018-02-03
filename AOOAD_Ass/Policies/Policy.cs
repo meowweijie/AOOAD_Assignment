@@ -159,11 +159,15 @@ namespace AOOAD_Ass.Policies
             { 
                 //Implementation
                 Console.WriteLine("Email alert generation request sent to email server.");
+
+                Lapsed();
             }
             else if (opt == 2)
             {
                 //Implementation
                 Console.WriteLine("Printed alert generation request sent to printer server.");
+
+                Lapsed();
             }
             else if (opt == 3)
             {
@@ -172,6 +176,8 @@ namespace AOOAD_Ass.Policies
 
                 //Implementation
                 Console.WriteLine("Printed alert generation request sent to printer server.");
+
+                Lapsed();
             }
             else
             {

@@ -278,7 +278,10 @@ namespace AOOAD_Ass
             }
             else if (opt == 2)
             {
-                
+                if(DateTime.Now >p.DueDate)
+                {
+                    p.GenerateAlert();
+                }
             }
             else if (opt == 3)
             {
