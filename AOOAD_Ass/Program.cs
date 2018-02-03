@@ -124,22 +124,29 @@ namespace AOOAD_Ass
             Console.WriteLine("0. Exit");
             Console.WriteLine("Select type of policy: ");        
             option = Convert.ToInt32(Console.ReadLine());
+
+            //Policy 
             if(option == 1) //Medical
             {
                 Console.Write("Enter Injury Severity(Low, Medium, High): ");
                 severity = Console.ReadLine();
                 if(severity == "Low")
                 {
-
+                    //implementation
                 }
                 else if (severity == "Medium")
                 {
-
+                    //implementation
                 }
                 else if (severity == "High")
                 {
-
+                    //implementation
                 }
+                else
+                {
+                    Console.WriteLine("Error! Please enter only Low, Medium or High.");
+                }
+                Console.WriteLine(); // Add the terms and condition thing here.
             }
             else if (option == 2) //Car
             {
@@ -152,6 +159,10 @@ namespace AOOAD_Ass
             else if(option == 0)
             {
                 Console.WriteLine("Insurance Policy was not created.");
+            }
+            if (option != 0)
+            {
+                Console.WriteLine("Select terms and conditions: ");
             }
             Console.WriteLine();
             Console.ReadKey();
