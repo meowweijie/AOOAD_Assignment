@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using AOOAD_Ass.State;
 using AOOAD_Ass.Agents;
 using AOOAD_Ass.Policies;
+using AOOAD_Ass.Agents;
+
 
 namespace AOOAD_Ass
 {
@@ -13,22 +15,24 @@ namespace AOOAD_Ass
     {
         static void Main(string[] args)
         {
+            // Test data
+            List<Policy> PolicyList = new List<Policy>();
+            List<Client> ClientList = new List<Client>();
+            List<Agent> AgentList = new List<Agent>();
+
+
             Medical mpolicy = new Medical();
             Travel tpolicy = new Travel();
             Car cpolicy = new Car();
-            CreatePolicy();
-        }
 
-        static void MainMenu()
-        {
+            CreatePolicy();
+            
+
+            //Main Menu
             int option;
-            Console.WriteLine();
             do
             {
-                
-                Console.WriteLine("1. Create Insurance Policy.");
-                Console.WriteLine("2. View all policies.");
-                Console.WriteLine("3. Exit.");
+                MainMenu();
                 option = Convert.ToInt32(Console.ReadLine());
                 Console.WriteLine();
 
@@ -39,8 +43,71 @@ namespace AOOAD_Ass
                 else if (option == 2)
                 {
                     ViewPolicies();
+                    int opt;
+                    Console.WriteLine("View Policies options:");
+                    Console.WriteLine("1. View all policies");
+                    Console.WriteLine("2. Filter Policies");
+                    Console.WriteLine("3. View a specific policy");
+                    opt = Convert.ToInt32(Console.ReadLine());
+                    Console.WriteLine();
+
+                    if (opt == 1)
+                    {
+                        //Implementation
+                        Console.WriteLine("All policies in system is displayed.");
+                    }
+                    else if (opt == 2)
+                    {
+                        Console.WriteLine("1. Client");
+                        Console.WriteLine("2. Agent");
+                        opt = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine();
+
+                        if (opt == 1)
+                        {
+                            Client client = null;
+                            string user = Convert.ToString(Console.ReadLine());
+                            for (int i = 0; i<ClientList.Count;i++)
+                            {
+                                if(ClientList[i].ClientNo==user)
+                                {
+                                    client = ClientList[i];
+                                }
+                            }
+
+                            if(client != null)
+                            {
+
+                            }
+                        }
+                        else if (opt == 2)
+                        {
+                            string user = Convert.ToString(Console.ReadLine());
+                            for (int i = 0; i < AgentList.Count; i++)
+                            {
+
+                            }
+                        }
+                    }
+                    else if (opt == 3)
+                    {
+
+                    }
                 }
+
+
             } while (option != 0);
+
+        }
+
+        static void MainMenu()
+        {
+            Console.WriteLine("1. Create Insurance Policy.");
+            Console.WriteLine("2. View all policies.");
+            Console.WriteLine("3. Exit.");
+
+            Console.WriteLine();
+            
         }
 
         static void CreatePolicy()
@@ -93,39 +160,7 @@ namespace AOOAD_Ass
 
         static void ViewPolicies()
         {
-            int opt;
-            Console.WriteLine("View Policies options:");
-            Console.WriteLine("1. View all policies");
-            Console.WriteLine("2. Filter Policies");
-            Console.WriteLine("3. View a specific policy");
-            opt = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine();
-
-            if(opt==1)
-            {
-                //Implementation
-                Console.WriteLine("All policies in system is displayed.");
-            }
-            else if(opt==2)
-            {
-                Console.WriteLine("1. Client");
-                Console.WriteLine("2. Agent");
-                opt = Convert.ToInt32(Console.ReadLine());
-                Console.WriteLine();
-
-                if(opt==1)
-                {
-                    string user = Convert.ToString(Console.ReadLine());
-                }
-                else if(opt==2)
-                {
-
-                }
-            }
-            else if(opt==3)
-            {
-
-            }
+            
             
         }
     }
