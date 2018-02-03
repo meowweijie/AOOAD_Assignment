@@ -20,7 +20,7 @@ namespace AOOAD_Ass
             List<Agent> AgentList = new List<Agent>();
 
 
-            Medical mpolicy = new Medical("");
+            Medical mpolicy = new Medical();
             Travel tpolicy = new Travel();
             Car cpolicy = new Car();
 
