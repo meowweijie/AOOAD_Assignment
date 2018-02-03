@@ -29,6 +29,11 @@ namespace AOOAD_Ass.State
             Console.WriteLine("Terminated policy cannot be lapsed again");
         }
 
+        public void terminatePolicy()
+        {
+            Console.WriteLine("Policy is already terminated..");
+        }
+
         public void terminatePolicy(bool penalty)
         {
             Console.WriteLine("Policy is already terminated..");

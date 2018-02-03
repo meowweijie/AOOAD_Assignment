@@ -7,10 +7,11 @@ using AOOAD_Ass.Policies;
 
 namespace AOOAD_Ass.State
 {
-    interface PolicyState
+    public interface PolicyState
     {
         void lapsePolicy();
         void activatePolicy();
+        void terminatePolicy();
         void terminatePolicy(bool penalty);
         void archivePolicy();
     }

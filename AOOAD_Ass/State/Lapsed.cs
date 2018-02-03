@@ -28,7 +28,12 @@ namespace AOOAD_Ass.State
 
         public void lapsePolicy()
         {
-            Console.WriteLine("Cannot change back to the same state..");
+            Console.WriteLine("Cannot change back to the same state.");
+        }
+
+        public void terminatePolicy()
+        {
+            Console.WriteLine("Unable to terminate policy.");
         }
 
         public void terminatePolicy(bool penalty)
