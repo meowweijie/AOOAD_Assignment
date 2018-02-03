@@ -10,9 +10,9 @@ namespace AOOAD_Ass.Policies
     {
         public int riderNo { get; set; }
         public string riderType { get; set; }
-        public int amount { get; set; }
+        public float amount { get; set; }
         public Rider() { }
-        public Rider(int no, string type, int a)
+        public Rider(int no, string type, float a)
         {
             riderNo = no;
             riderType = type;

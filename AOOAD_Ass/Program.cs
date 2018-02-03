@@ -21,12 +21,13 @@ namespace AOOAD_Ass
             List<Agent> AgentList = new List<Agent>();
             List<Rider> RiderList = new List<Rider>();
 
+            initRiderList(RiderList);
+
             Medical mpolicy = new Medical();
             Travel tpolicy = new Travel();
             Car cpolicy = new Car();
 
-            CreatePolicy(PolicyList, RiderList);
-            
+            CreatePolicy(PolicyList, RiderList);            
 
             //Main Menu
             int option;
@@ -155,7 +156,15 @@ namespace AOOAD_Ass
 
         static void initRiderList(List<Rider> riderList)
         {
-
+            string riderType1 = "RiderA";
+            string riderType2 = "RiderB";
+            string riderType3 = "RiderC";
+            float amount1 = 500;
+            float amount2 = 1000;
+            float amount3 = 2000;
+            Rider rider1 = new Rider(1, riderType1, amount1);
+            Rider rider2 = new Rider(2, riderType2, amount2);
+            Rider rider3 = new Rider(3, riderType3, amount3);
         }
 
         static void CreatePolicy(List<Policy> policyList, List<Rider> riderList)
