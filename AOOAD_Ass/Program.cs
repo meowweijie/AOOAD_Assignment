@@ -20,6 +20,17 @@ namespace AOOAD_Ass
         {
             Console.WriteLine("1. Create Insurance Policy.");
             Console.WriteLine("2. View all policies.");
+            int option = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine();
+
+            if(option==1)
+            {
+
+            }
+            else if(option == 2)
+            {
+                ViewPolicies();
+            }
         }
 
         static void CreateInsurancePolicy()
@@ -38,6 +49,12 @@ namespace AOOAD_Ass
             }
             Console.WriteLine();
             Console.ReadKey();
+        }
+
+
+        static void ViewPolicies()
+        {
+            Console.WriteLine();
         }
     }
 }

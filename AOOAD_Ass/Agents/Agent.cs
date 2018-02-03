@@ -8,6 +8,7 @@ namespace AOOAD_Ass.Agents
 {
     abstract class Agent
     {
+        //Attributes
         private string agentNo;
 
         public string AgentNo
@@ -23,6 +24,8 @@ namespace AOOAD_Ass.Agents
             get { return commission; }
             set { commission = value; }
         }
+
+        //Methods
         public abstract float calculateCommission();
 
     }
