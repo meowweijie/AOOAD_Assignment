@@ -8,7 +8,8 @@ namespace AOOAD_Ass.Policies
 {
     class Medical:Policy
     {
-        public Medical(string s)
+        public Medical() { }
+        public Medical(Policy p, string s)
         {
             severity = s;
         }
