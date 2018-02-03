@@ -275,11 +275,11 @@ namespace AOOAD_Ass
             }
             else if (opt == 3)
             {
-                
+                return;
             }
             else
             {
-                
+                return;
             }
 
         }
