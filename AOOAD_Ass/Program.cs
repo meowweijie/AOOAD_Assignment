@@ -13,6 +13,9 @@ namespace AOOAD_Ass
     {
         static void Main(string[] args)
         {
+            Medical mpolicy = new Medical();
+            Travel tpolicy = new Travel();
+            Car cpolicy = new Car();
             CreatePolicy();
         }
 
