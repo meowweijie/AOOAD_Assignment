@@ -9,6 +9,15 @@ namespace AOOAD_Ass.Policies
 {
     abstract class Policy
     {
+        //basic attributes
+        public string policyNo { get; set; }
+        public string termsCondition { get; set; }
+        public DateTime maturityDate { get; set; }
+
+        List<Rider> ridersList = new List<Rider>();
+        public abstract float calculatePayout();
+
+        //states
         private PolicyState state;
         private PolicyState activeState;
         private PolicyState lapsedState;
@@ -47,14 +56,6 @@ namespace AOOAD_Ass.Policies
         public PolicyState getLapsedState() { return lapsedState; }
         public PolicyState getTerminatedState() { return terminatedState; }
         // End of State Pattern methods
-
-        public Rider r { get; set; }
-        public abstract float calculatePayout();
-
-        public void addRider(Rider rider)
-        {
-            r = rider;
-        }
 
     }
 }

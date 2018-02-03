@@ -28,6 +28,7 @@ namespace AOOAD_Ass
             Console.WriteLine("1. Medical Insurance Policy");
             Console.WriteLine("2. Car Insurance Policy");
             Console.WriteLine("2. Travel Insurance Policy");
+            Console.WriteLine("0. Exit");
             Console.WriteLine("Select type of policy: ");        
             option = Convert.ToInt32(Console.ReadLine());
             if(option == 1)
