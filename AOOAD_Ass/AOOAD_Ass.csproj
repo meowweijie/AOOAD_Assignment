@@ -43,12 +43,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Agents\Agent.cs" />
-    <Compile Include="Policies\Car.cs" />
     <Compile Include="Client.cs" />
     <Compile Include="Agents\JuniorAgent.cs" />
-    <Compile Include="Policies\Medical.cs" />
     <Compile Include="Agents\NormalAgent.cs" />
+    <Compile Include="Policies\Car.cs" />
+    <Compile Include="Policies\Medical.cs" />
     <Compile Include="Policies\Policy.cs" />
+    <Compile Include="Policies\Travel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Policies\Rider.cs" />
@@ -57,7 +58,6 @@
     <Compile Include="State\Lapsed.cs" />
     <Compile Include="State\PolicyState.cs" />
     <Compile Include="State\Terminated.cs" />
-    <Compile Include="Policies\Travel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -48,21 +48,18 @@ namespace AOOAD_Ass.Policies
         public PolicyState getTerminatedState() { return terminatedState; }
         // End of State Pattern methods
 
+        float calculatePayout()
+        {
 
+        }
+        void addRider(Rider rider)
+        {
 
+        }
+        void generateAlert()
+        {
 
-
-
-
-
-
-
-
-
-
-
-
-
+        }
 
     }
 }
