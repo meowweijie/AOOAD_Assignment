@@ -10,8 +10,8 @@ namespace AOOAD_Ass.Iterator
 {
     interface Iterator
     {
-        Boolean hasNext();
-        Policy next();
+        Boolean HasNext();
+        Policy Next();
         
     }
 }
