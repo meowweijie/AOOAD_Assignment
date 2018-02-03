@@ -7,7 +7,7 @@ using AOOAD_Ass.State;
 
 namespace AOOAD_Ass.Policies
 {
-    class Policy
+    abstract class Policy
     {
         private PolicyState state;
         private PolicyState activeState;
@@ -48,18 +48,11 @@ namespace AOOAD_Ass.Policies
         public PolicyState getTerminatedState() { return terminatedState; }
         // End of State Pattern methods
 
-        float calculatePayout()
-        {
+        public abstract float calculatePayout();
 
-        }
         void addRider(Rider rider)
         {
             
-        }
-
-        void generateAlert()
-        {
-
         }
 
     }
