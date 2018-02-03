@@ -134,5 +134,57 @@ namespace AOOAD_Ass.Policies
             }
             Console.WriteLine("Current state: {0}", currentstate);
         }
+
+        //Other Operations
+        public float CalculatePayOut()
+        {
+            float payout = 0;
+
+            //Implementations
+
+            return payout;
+        }
+
+        public void GenerateAlert()
+        {
+            Console.WriteLine("Generate Alert");
+            Console.WriteLine("1. Email Alert");
+            Console.WriteLine("2. Print Alert");
+            Console.WriteLine("3. Email and Print Alert");
+
+            Console.WriteLine();
+
+            int opt = Convert.ToInt32(Console.ReadLine());
+            if (opt == 1)
+            { 
+                //Implementation
+                Console.WriteLine("Email alert generation request sent to email server.");
+
+                Lapsed();
+            }
+            else if (opt == 2)
+            {
+                //Implementation
+                Console.WriteLine("Printed alert generation request sent to printer server.");
+
+                Lapsed();
+            }
+            else if (opt == 3)
+            {
+                //Implementation
+                Console.WriteLine("Email alert generation request sent to email server.");
+
+                //Implementation
+                Console.WriteLine("Printed alert generation request sent to printer server.");
+
+                Lapsed();
+            }
+            else
+            {
+                Console.WriteLine("Invalid option.");
+            }
+        }
+
+
     }
 }
