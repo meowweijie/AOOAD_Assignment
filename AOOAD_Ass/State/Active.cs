@@ -15,24 +15,24 @@ namespace AOOAD_Ass.State
         {
             this.policy = policy;
         }
-        public void activatePolicy()
+        public void ActivatePolicy()
         {
             Console.WriteLine("Policy is already in active state!");
         }
 
-        public void archivePolicy()
+        public void ArchivePolicy()
         {
             Console.WriteLine("Unable to archive policy from active state");
         }
 
-        public void lapsePolicy()
+        public void LapsePolicy()
         {
             
             policy.setState(policy.getLapsedState());
             Console.WriteLine("Policy is Lapsed.");
         }
 
-        public void terminatePolicy()
+        public void TerminatePolicy()
         {
             if(policy.PayOut==true || DateTime.Now > policy.MaturityDate)
             {
@@ -42,7 +42,7 @@ namespace AOOAD_Ass.State
             else { Console.WriteLine("Unable to terminate policy."); }
         }
 
-        public void terminatePolicy(bool penalty)
+        public void TerminatePolicy(bool penalty)
         {
             Console.WriteLine("Unable to terminate policy.");
         }

@@ -8,7 +8,7 @@ namespace AOOAD_Ass.Agents
 {
     class JuniorAgent : Agent
     {
-        public override float calculateCommission()
+        public override float CalculateCommission()
         {
             float commission = 0;
             // implementation

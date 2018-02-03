@@ -19,8 +19,8 @@ namespace AOOAD_Ass.Policies
         public float Premium { get; set; }
 
         //Operations
-        public abstract float calculatePayout();
-        public void addRider(Rider rider)
+        public abstract float CalculatePayout();
+        public void AddRider(Rider rider)
         {
             RidersList.Add(rider);
         }

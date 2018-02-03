@@ -9,10 +9,10 @@ namespace AOOAD_Ass.State
 {
     interface PolicyState
     {
-        void lapsePolicy();
-        void activatePolicy();
-        void terminatePolicy();
-        void terminatePolicy(bool penalty);
-        void archivePolicy();
+        void LapsePolicy();
+        void ActivatePolicy();
+        void TerminatePolicy();
+        void TerminatePolicy(bool penalty);
+        void ArchivePolicy();
     }
 }

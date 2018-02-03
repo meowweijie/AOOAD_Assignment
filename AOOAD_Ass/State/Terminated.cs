@@ -14,27 +14,27 @@ namespace AOOAD_Ass.State
         {
             this.policy = policy;
         }
-        public void activatePolicy()
+        public void ActivatePolicy()
         {
             Console.WriteLine("Terminated policy cannot be active again");
         }
 
-        public void archivePolicy()
+        public void ArchivePolicy()
         {
             Console.WriteLine("Policy is now archived!");
         }
 
-        public void lapsePolicy()
+        public void LapsePolicy()
         {
             Console.WriteLine("Terminated policy cannot be lapsed again");
         }
 
-        public void terminatePolicy()
+        public void TerminatePolicy()
         {
             Console.WriteLine("Policy is already terminated..");
         }
 
-        public void terminatePolicy(bool penalty)
+        public void TerminatePolicy(bool penalty)
         {
             Console.WriteLine("Policy is already terminated..");
         }

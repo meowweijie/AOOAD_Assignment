@@ -13,7 +13,7 @@ namespace AOOAD_Ass
         private List<Policy> ownedPolicies = new List<Policy>();
 
         //Methods
-        public void addPolicy()
+        public void AddPolicy()
         {
 
         }
