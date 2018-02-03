@@ -21,7 +21,7 @@ namespace AOOAD_Ass
         public string Address { get; set; }
         public string AccountNo { get; set; }
 
-        private PolicyCollection ownedPolicy;
+        private PolicyCollection ownedPolicies;
 
 
 
@@ -31,7 +31,7 @@ namespace AOOAD_Ass
             //Implementation
         }
 
-        public void ViewPolicy()
+        public void ViewPolicies(string type)
         {
             
         }

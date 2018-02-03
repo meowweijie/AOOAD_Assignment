@@ -76,7 +76,62 @@ namespace AOOAD_Ass.Policies
         public PolicyState GetLapsedState() { return lapsedState; }
         public PolicyState GetTerminatedState() { return terminatedState; }
 
+        //Checks states
+        public bool IsExisting()
+        {
+            if (state == terminatedState)
+                return false;
+            else
+                return true;
+        }
+
+        public bool IsMatured()
+        {
+            if (DateTime.Now>MaturityDate || PayOut==true)
+                return true;
+            else
+                return false;
+        }
+
+        public bool IsTerminated()
+        {
+            if (state == terminatedState)
+                return true;
+            else
+                return false;
+        }
+
         // End of State Pattern methods
 
+
+        //Display policy details
+        public void DisplayDetails()
+        {
+            Console.WriteLine("Policy No: {0}", PolicyNo);
+            Console.WriteLine("Terms: {0}", TermsCondition);
+            Console.WriteLine("Premium Amount: {0}", Premium);
+
+            string payoutInfo;
+            if (PayOut)
+                payoutInfo = "Paid Out";
+            else
+                payoutInfo = "Not Paid Out yet";
+            Console.WriteLine("Pay Out: {0}", payoutInfo);
+
+            string currentstate = "";
+            if(state == activeState)
+            {
+                currentstate = "Active";
+            }
+            else if (state == lapsedState)
+            {
+                currentstate = "Lapsed";
+            }
+            else if (state == terminatedState)
+            {
+                currentstate = "Terminated";
+            }
+            Console.WriteLine("Current state: {0}", currentstate);
+        }
     }
 }

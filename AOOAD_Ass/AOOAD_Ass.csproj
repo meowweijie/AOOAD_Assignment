@@ -46,7 +46,10 @@
     <Compile Include="Client.cs" />
     <Compile Include="Agents\JuniorAgent.cs" />
     <Compile Include="Agents\NormalAgent.cs" />
-    <Compile Include="Iterator\Iterator.cs" />
+    <Compile Include="Iterator\ExistingPolicyIterator.cs" />
+    <Compile Include="Iterator\MaturedPolicyIterator.cs" />
+    <Compile Include="Iterator\PolicyIterator.cs" />
+    <Compile Include="Iterator\TerminatedPolicyIterator.cs" />
     <Compile Include="Policies\Car.cs" />
     <Compile Include="Policies\Medical.cs" />
     <Compile Include="Policies\Policy.cs" />
