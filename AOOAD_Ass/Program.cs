@@ -80,6 +80,12 @@ namespace AOOAD_Ass
 
         static void ViewPolicies()
         {
+            int opt;
+            Console.WriteLine("View Policies options:");
+            Console.WriteLine("1. View all policies");
+            Console.WriteLine("2. Filter Policies");
+            Console.WriteLine("2. View a specific policy");
+            opt = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine();
         }
     }
