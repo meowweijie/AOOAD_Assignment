@@ -13,9 +13,17 @@ namespace AOOAD_Ass.Policies
         public string policyNo { get; set; }
         public string termsCondition { get; set; }
         public DateTime maturityDate { get; set; }
-
         List<Rider> ridersList = new List<Rider>();
+        public bool payOut { get; set; }
+        public bool periodic { get; set; }
+        public float premium { get; set; }
+
+        //Operations
         public abstract float calculatePayout();
+        public void addRider(Rider rider)
+        {
+
+        }
 
         //states
         private PolicyState state;
