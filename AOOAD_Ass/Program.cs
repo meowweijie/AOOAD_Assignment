@@ -18,19 +18,26 @@ namespace AOOAD_Ass
 
         static void MainMenu()
         {
-            Console.WriteLine("1. Create Insurance Policy.");
-            Console.WriteLine("2. View all policies.");
-            int option = Convert.ToInt32(Console.ReadLine());
+            int option;
             Console.WriteLine();
-
-            if(option==1)
+            do
             {
+                
+                Console.WriteLine("1. Create Insurance Policy.");
+                Console.WriteLine("2. View all policies.");
+                Console.WriteLine("3. Exit.");
+                option = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine();
 
-            }
-            else if(option == 2)
-            {
-                ViewPolicies();
-            }
+                if (option == 1)
+                {
+
+                }
+                else if (option == 2)
+                {
+                    ViewPolicies();
+                }
+            } while (option != 0);
         }
 
         static void CreatePolicy()
@@ -87,9 +94,36 @@ namespace AOOAD_Ass
             Console.WriteLine("View Policies options:");
             Console.WriteLine("1. View all policies");
             Console.WriteLine("2. Filter Policies");
-            Console.WriteLine("2. View a specific policy");
+            Console.WriteLine("3. View a specific policy");
             opt = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine();
+
+            if(opt==1)
+            {
+                //Implementation
+                Console.WriteLine("All policies in system is displayed.");
+            }
+            else if(opt==2)
+            {
+                Console.WriteLine("1. Client");
+                Console.WriteLine("2. Agent");
+                opt = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine();
+
+                if(opt==1)
+                {
+                    string user = Convert.ToString(Console.ReadLine());
+                }
+                else if(opt==2)
+                {
+
+                }
+            }
+            else if(opt==3)
+            {
+
+            }
+            
         }
     }
 }
