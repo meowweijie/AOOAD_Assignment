@@ -22,7 +22,7 @@ namespace AOOAD_Ass.Policies
         public abstract float calculatePayout();
         public void addRider(Rider rider)
         {
-
+            ridersList.Add(rider);
         }
 
         //states
