@@ -145,14 +145,17 @@ namespace AOOAD_Ass
             //Variables needed
             int clientid;
             int option;
-            string severity;
-            string terms;
+            string policyType = "";
+            string severity = "";
+            string terms = "";
+            string hasMaturityDate = "";
             DateTime maturityDate;
             bool periodic;
             bool payout;
             List<Rider> riderList = new List<Rider>();
-            float premium;
-
+            string premium = "";
+            float payment;
+            int months;
 
             //Before Policy
             Console.Write("Enter Client's ID: ");
@@ -170,6 +173,7 @@ namespace AOOAD_Ass
             //Policy 
             if(option == 1) //Medical
             {
+                policyType = "Medical";
                 Console.Write("Enter Injury Severity(Low, Medium, High): ");
                 severity = Console.ReadLine();
                 if(severity == "Low")
@@ -192,10 +196,12 @@ namespace AOOAD_Ass
             }
             else if (option == 2) //Car
             {
+                policyType = "Car";
                 Console.WriteLine(); // Add the terms and condition thing here.
             }
             else if (option == 3) //Travel
             {
+                policyType = "Travel";
                 Console.WriteLine(); // Add the terms and condition thing here.
             }
             else if(option == 0)
@@ -206,6 +212,42 @@ namespace AOOAD_Ass
             {
                 Console.Write("Select terms and conditions: ");
                 terms = Console.ReadLine();
+                Console.Write("Select type of premium(One-time/Periodic): ");
+                premium = Console.ReadLine();
+                if (premium == "One-time")
+                {
+                    Console.Write("Enter the total cost of payment: ");
+                    payment = Convert.ToInt32(Console.ReadLine());
+                }
+                else if (premium == "Periodic")
+                {
+                    Console.Write("Enter the number of months of payment: ");
+                    months = Convert.ToInt32(Console.ReadLine());
+                    Console.Write("Enter payment to be made each month: ");
+                    payment = Convert.ToInt32(Console.ReadLine());
+                }
+                Console.Write("Does the policy have a maturity date?(Y/N): ");
+                hasMaturityDate = Console.ReadLine();
+                if(hasMaturityDate == "Y")
+                {
+                    Console.Write("Enter policy maturity date: ");
+                    maturityDate = Convert.ToDateTime(Console.ReadLine());
+                    Console.WriteLine("Policy holder will be given a lump sum payout.");
+                }
+                Console.WriteLine("ClientID: {0}", clientid);
+                Console.WriteLine("Policy Type: {0}", policyType);
+                if(policyType == "Medical")
+                {
+                    Console.WriteLine("Severity: {0}", severity);
+                }
+                Console.WriteLine();
+                Console.WriteLine();
+                Console.WriteLine();
+                Console.WriteLine();
+                Console.WriteLine();
+                Console.WriteLine();
+                Console.WriteLine();
+
             }
             Console.WriteLine();
             Console.ReadKey();
