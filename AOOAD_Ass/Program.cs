@@ -7,6 +7,7 @@ using AOOAD_Ass.State;
 using AOOAD_Ass.Agents;
 using AOOAD_Ass.Policies;
 
+//Uncertainties: Due date only for Periodic?
 
 namespace AOOAD_Ass
 {
@@ -18,6 +19,7 @@ namespace AOOAD_Ass
             List<Policy> PolicyList = new List<Policy>();
             List<Client> ClientList = new List<Client>();
             List<Agent> AgentList = new List<Agent>();
+            List<Rider> riderList = new List<Rider>();
 
             Medical mpolicy = new Medical();
             Travel tpolicy = new Travel();
@@ -139,6 +141,10 @@ namespace AOOAD_Ass
             Console.WriteLine();
             
         }
+        static void initRiderList(List<Rider> riderList)
+        {
+
+        }
 
         static void CreatePolicy()
         {
@@ -148,11 +154,11 @@ namespace AOOAD_Ass
             string policyType = "";
             string severity = "";
             string terms = "";
+            DateTime dueDate = new DateTime();
             string hasMaturityDate = "";
-            DateTime maturityDate;
+            DateTime maturityDate = new DateTime();
             bool periodic = false;
             bool payout = false;
-            List<Rider> riderList = new List<Rider>();
             string premium = "";
             float payment = 0;
             int months = 0;
@@ -192,17 +198,17 @@ namespace AOOAD_Ass
                 {
                     Console.WriteLine("Error! Please enter only Low, Medium or High.");
                 }
-                Console.WriteLine(); // Add the terms and condition thing here.
+                Console.WriteLine("Terms and Conditions Test"); // Add the terms and condition thing here.
             }
             else if (option == 2) //Car
             {
                 policyType = "Car";
-                Console.WriteLine(); // Add the terms and condition thing here.
+                Console.WriteLine("Terms and Conditions Test"); // Add the terms and condition thing here.
             }
             else if (option == 3) //Travel
             {
                 policyType = "Travel";
-                Console.WriteLine(); // Add the terms and condition thing here.
+                Console.WriteLine("Terms and Conditions Test"); // Add the terms and condition thing here.
             }
             else if(option == 0)
             {
@@ -225,14 +231,25 @@ namespace AOOAD_Ass
                     months = Convert.ToInt32(Console.ReadLine());
                     Console.Write("Enter payment to be made each month: ");
                     payment = Convert.ToInt32(Console.ReadLine());
+                    Console.Write("Enter due date of payment(YYYY-MM-DD): ");
+                    dueDate = DateTime.Parse(Console.ReadLine());
+                    periodic = true;
                 }
                 Console.Write("Does the policy have a maturity date?(Y/N): ");
                 hasMaturityDate = Console.ReadLine();
                 if(hasMaturityDate == "Y")
                 {
                     Console.Write("Enter policy maturity date: ");
-                    maturityDate = Convert.ToDateTime(Console.ReadLine());
+                    maturityDate = DateTime.Parse(Console.ReadLine());
                     Console.WriteLine("Policy holder will be given a lump sum payout.");
+                }
+                Console.Write("Does the policy have optional riders?(Y/N): ");
+                if(Console.ReadLine()== "Y")
+                {
+                    for(int i = 0; i < riderList.Count; i++)
+                    {
+                        Console.WriteLine
+                    }
                 }
                 Console.WriteLine("ClientID: {0}", clientid);
                 Console.WriteLine("Policy Type: {0}", policyType);
@@ -248,13 +265,17 @@ namespace AOOAD_Ass
                 {
                     Console.WriteLine("Month: {0}", Convert.ToString(months));
                     Console.WriteLine("Payment: {0}", Convert.ToString(payment));
+                    Console.WriteLine("Due Date: {0}", Convert.ToString(dueDate));
                 }
-                if(hasMaturityDate == "")
+                if (hasMaturityDate == "Y")
+                    Console.WriteLine("Maturity Date: {0}", Convert.ToString(maturityDate));
+                if(riderList)
                 Console.WriteLine();
                 Console.WriteLine();
                 Console.WriteLine();
                 Console.WriteLine();
-
+                Console.WriteLine();
+                Console.WriteLine();
             }
             Console.WriteLine();
             Console.ReadKey();
