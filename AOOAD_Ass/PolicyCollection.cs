@@ -49,6 +49,7 @@ namespace AOOAD_Ass
             while(iter.HasNext())
             {
                 policy = iter.Next();
+                Console.WriteLine("{0} - Status: {1}", policy.PolicyNo, type);
             }
         }
     }
