@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AOOAD_Ass
 {
-    class Insurance
+    class Policy
     {
         public string policyNo { get; set; }
         public string termsCondition { get; set; }

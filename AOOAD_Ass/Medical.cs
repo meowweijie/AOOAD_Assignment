@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AOOAD_Ass
 {
-    class Medical:Insurance
+    class Medical:Policy
     {
         public string severity { get; set; }
     }

@@ -44,7 +44,7 @@
   <ItemGroup>
     <Compile Include="Agent.cs" />
     <Compile Include="Car.cs" />
-    <Compile Include="Insurance.cs" />
+    <Compile Include="Policy.cs" />
     <Compile Include="JuniorAgent.cs" />
     <Compile Include="Medical.cs" />
     <Compile Include="NormalAgent.cs" />

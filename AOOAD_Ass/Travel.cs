@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AOOAD_Ass
 {
-    class Travel:Insurance
+    class Travel:Policy
     {
     }
 }
