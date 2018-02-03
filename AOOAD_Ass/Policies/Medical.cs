@@ -8,6 +8,11 @@ namespace AOOAD_Ass.Policies
 {
     class Medical:Policy
     {
+        public Medical()
+        {
+
+        }
+
         public string severity { get; set; }
         public override float CalculatePayout()
         {
