@@ -41,7 +41,7 @@ namespace AOOAD_Ass.Policies
         }
 
         // State Pattern methods
-        public void setState(PolicyState state)
+        public void SetState(PolicyState state)
         {
             this.state = state;
         }
@@ -72,9 +72,9 @@ namespace AOOAD_Ass.Policies
         }
 
         // My getters for the states so i dont have to keep recreating the objects inside my policyState
-        public PolicyState getActiveState() { return activeState; }
-        public PolicyState getLapsedState() { return lapsedState; }
-        public PolicyState getTerminatedState() { return terminatedState; }
+        public PolicyState GetActiveState() { return activeState; }
+        public PolicyState GetLapsedState() { return lapsedState; }
+        public PolicyState GetTerminatedState() { return terminatedState; }
 
         // End of State Pattern methods
 

@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using AOOAD_Ass.State;
 using AOOAD_Ass.Agents;
 using AOOAD_Ass.Policies;
-using AOOAD_Ass.Agents;
 
 
 namespace AOOAD_Ass
@@ -21,7 +20,7 @@ namespace AOOAD_Ass
             List<Agent> AgentList = new List<Agent>();
 
 
-            Medical mpolicy = new Medical();
+            Medical mpolicy = new Medical("");
             Travel tpolicy = new Travel();
             Car cpolicy = new Car();
 
@@ -77,7 +76,8 @@ namespace AOOAD_Ass
 
                             if(client != null)
                             {
-
+                                string type = ViewFilters();
+                                
                             }
                         }
                         else if (opt == 2)
@@ -162,6 +162,33 @@ namespace AOOAD_Ass
         {
             
             
+        }
+
+        static string ViewFilters()
+        {
+            Console.WriteLine("1. View Existing");
+            Console.WriteLine("2. View Matured");
+            Console.WriteLine("3. View Terminated");
+
+            Console.WriteLine();
+
+            int opt = Convert.ToInt32(Console.ReadLine());
+            if(opt ==1)
+            {
+                return "Existing";
+            }
+            else if(opt==2)
+            {
+                return "Matured";
+            }
+            else if(opt==3)
+            {
+                return "Terminated";
+            }
+            else
+            {
+                return "";
+            }
         }
     }
 }
