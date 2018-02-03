@@ -25,7 +25,17 @@ namespace AOOAD_Ass.Agents
             set { commission = value; }
         }
 
+        public string Name { get; set; }
+
+        private PolicyCollection ownedPolicies;
+
         //Methods
+
+        public void ViewPolicies(string type)
+        {
+            ownedPolicies.displayPolicy(type);
+        }
+
         public abstract float CalculateCommission();
 
     }
