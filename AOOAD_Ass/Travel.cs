@@ -8,9 +8,9 @@ namespace AOOAD_Ass
 {
     class Travel:Policy
     {
-        float calculatePayout()
+        /*float calculatePayout()
         {
 
-        }
+        }*/
     }
 }

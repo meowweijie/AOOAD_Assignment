@@ -9,9 +9,9 @@ namespace AOOAD_Ass
     class Medical:Policy
     {
         public string severity { get; set; }
-        float calculatePayout()
+        /*float calculatePayout()
         {
 
-        }
+        }*/
     }
 }

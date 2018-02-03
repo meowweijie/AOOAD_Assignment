@@ -12,5 +12,27 @@ namespace AOOAD_Ass
         {
 
         }
+
+        void MainMenu()
+        {
+            Console.WriteLine("1. Create Insurance Policy.");
+        }
+
+        void CreateInsurancePolicy()
+        {
+            int option;
+            Console.WriteLine("Types of Policies");
+            Console.WriteLine("1. Medical Insurance Policy /b");
+            Console.WriteLine("2. Car Insurance Policy");
+            Console.WriteLine("2. Travel Insurance Policy");
+            Console.WriteLine("Select type of policy: ");
+            option = Convert.ToInt32(Console.ReadLine());
+            if(option == 1)
+            {
+
+            }
+            Console.WriteLine();
+            Console.ReadKey();
+        }
     }
 }
