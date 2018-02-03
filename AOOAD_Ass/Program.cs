@@ -129,12 +129,12 @@ namespace AOOAD_Ass
             string terms = "";
             string hasMaturityDate = "";
             DateTime maturityDate;
-            bool periodic;
-            bool payout;
+            bool periodic = false;
+            bool payout = false;
             List<Rider> riderList = new List<Rider>();
             string premium = "";
-            float payment;
-            int months;
+            float payment = 0;
+            int months = 0;
 
             //Before Policy
             Console.Write("Enter Client's ID: ");
@@ -219,9 +219,16 @@ namespace AOOAD_Ass
                 {
                     Console.WriteLine("Severity: {0}", severity);
                 }
-                Console.WriteLine();
-                Console.WriteLine();
-                Console.WriteLine();
+                Console.WriteLine("Terms & Conditions: {0}", terms);
+                Console.WriteLine("Premium: {0}", premium);
+                if (premium == "One-time")
+                    Console.WriteLine("Payment: {0}", Convert.ToString(payment));
+                else
+                {
+                    Console.WriteLine("Month: {0}", Convert.ToString(months));
+                    Console.WriteLine("Payment: {0}", Convert.ToString(payment));
+                }
+                if(hasMaturityDate == "")
                 Console.WriteLine();
                 Console.WriteLine();
                 Console.WriteLine();
