@@ -15,28 +15,28 @@ namespace AOOAD_Ass.State
         {
             this.policy = policy;
         }
-        public void activatePolicy()
+        public void ActivatePolicy()
         {
             policy.setState(policy.getActiveState());
             Console.WriteLine("Successfully changed from lapsed to active state!");
         }
 
-        public void archivePolicy()
+        public void ArchivePolicy()
         {
             Console.WriteLine("Cannot archive a lapsed policy!");
         }
 
-        public void lapsePolicy()
+        public void LapsePolicy()
         {
             Console.WriteLine("Cannot change back to the same state.");
         }
 
-        public void terminatePolicy()
+        public void TerminatePolicy()
         {
             Console.WriteLine("Unable to terminate policy.");
         }
 
-        public void terminatePolicy(bool penalty)
+        public void TerminatePolicy(bool penalty)
         {
             if (penalty)
                 Console.WriteLine("Customer terminated this, a penalty fee must be charged");

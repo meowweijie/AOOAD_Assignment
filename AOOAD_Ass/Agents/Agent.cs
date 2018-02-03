@@ -26,7 +26,7 @@ namespace AOOAD_Ass.Agents
         }
 
         //Methods
-        public abstract float calculateCommission();
+        public abstract float CalculateCommission();
 
     }
 }
