@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AOOAD_Ass
+namespace AOOAD_Ass.Agents
 {
-    class SeniorAgent : Agent
+    class NormalAgent : Agent
     {
         public override float calculateCommission()
         {
