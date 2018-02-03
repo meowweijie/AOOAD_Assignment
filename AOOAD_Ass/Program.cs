@@ -19,7 +19,6 @@ namespace AOOAD_Ass
             List<Client> ClientList = new List<Client>();
             List<Agent> AgentList = new List<Agent>();
 
-
             Medical mpolicy = new Medical();
             Travel tpolicy = new Travel();
             Car cpolicy = new Car();
@@ -112,11 +111,23 @@ namespace AOOAD_Ass
 
         static void CreatePolicy()
         {
+            //Variables needed
             int clientid;
-            Console.Write("Enter Client's ID: ");
-            clientid = Convert.ToInt32(Console.ReadLine());
             int option;
             string severity;
+            string terms;
+            DateTime maturityDate;
+            bool periodic;
+            bool payout;
+            List<Rider> riderList = new List<Rider>();
+            float premium;
+
+
+            //Before Policy
+            Console.Write("Enter Client's ID: ");
+            clientid = Convert.ToInt32(Console.ReadLine());
+     
+            //Menu for the Policy
             Console.WriteLine("Types of Policies");
             Console.WriteLine("1. Medical Insurance Policy");
             Console.WriteLine("2. Car Insurance Policy");
@@ -150,11 +161,11 @@ namespace AOOAD_Ass
             }
             else if (option == 2) //Car
             {
-
+                Console.WriteLine(); // Add the terms and condition thing here.
             }
             else if (option == 3) //Travel
             {
-
+                Console.WriteLine(); // Add the terms and condition thing here.
             }
             else if(option == 0)
             {
@@ -163,6 +174,7 @@ namespace AOOAD_Ass
             if (option != 0)
             {
                 Console.WriteLine("Select terms and conditions: ");
+
             }
             Console.WriteLine();
             Console.ReadKey();
