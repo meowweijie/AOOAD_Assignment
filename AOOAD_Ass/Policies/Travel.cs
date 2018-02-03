@@ -8,11 +8,11 @@ namespace AOOAD_Ass.Policies
 {
     class Travel:Policy
     {
-        public Travel()
+        public Travel() { }
+        public Travel(Policy p)
         {
 
         }
-
         public override float CalculatePayout()
         {
             return 0;
