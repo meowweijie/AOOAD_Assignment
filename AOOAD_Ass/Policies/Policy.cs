@@ -41,6 +41,18 @@ namespace AOOAD_Ass.Policies
             terminatedState = new Terminated(this);
         }
 
+        public Policy(string polNo, string terms, DateTime duedate, DateTime maturitydate, List<Rider> riderlist, bool payout, bool periodic, float premium)
+        {
+            PolicyNo = polNo;
+            TermsCondition = terms;
+            DueDate = duedate;
+            MaturityDate = maturitydate;
+            RidersList = riderlist;
+            PayOut = payout;
+            Periodic = periodic;
+            Premium = premium;
+        }
+
         // State Pattern methods
         public void SetState(PolicyState state)
         {
