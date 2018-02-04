@@ -225,21 +225,21 @@ namespace AOOAD_Ass
                     {
                         for (int i = 0; i < policyList.Count; i++)
                         {
-                            Policy p = new Medical(severity);
+                            Policy p = new Medical(policyList.Count+1.ToString(), terms, dueDate, maturityDate, riderList, payout, periodic, payment, severity);
                         }
                     }
                     else if (option == 2) //Car
                     {
                         for (int i = 0; i < policyList.Count; i++)
                         {
-                            Policy p = new Car();
+                            Policy p = new Car(policyList.Count + 1.ToString(), terms, dueDate, maturityDate, riderList, payout, periodic, payment);
                         }
                     }
                     else if (option == 3) //Travel
                     {
                         for (int i = 0; i < policyList.Count; i++)
                         {
-                            Policy p = new Travel();
+                            Policy p = new Travel(policyList.Count + 1.ToString(), terms, dueDate, maturityDate, riderList, payout, periodic, payment);
                         }
                     }
                     payout = true;

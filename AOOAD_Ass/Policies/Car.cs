@@ -8,7 +8,8 @@ namespace AOOAD_Ass.Policies
 {
     class Car:Policy
     {
-        public Car():base()
+        public Car() { }
+        public Car(string polNo, string terms, DateTime duedate, DateTime maturitydate, List<Rider> riderlist, bool payout, bool periodic, float premium) : base(polNo, terms, duedate, maturitydate, riderlist, payout, periodic, premium)
         {
             
         }
