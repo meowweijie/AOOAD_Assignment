@@ -30,9 +30,6 @@ namespace AOOAD_Ass
             initAgentList();
             initPolicyList();
 
-            Medical mpolicy = new Medical();
-            Travel tpolicy = new Travel();
-            Car cpolicy = new Car();
             ReadMe();
             //Main 
             int option;
@@ -74,9 +71,9 @@ namespace AOOAD_Ass
             Console.WriteLine("Types of Policies");
             Console.WriteLine("1. Medical Insurance Policy");
             Console.WriteLine("2. Car Insurance Policy");
-            Console.WriteLine("2. Travel Insurance Policy");
+            Console.WriteLine("3. Travel Insurance Policy");
             Console.WriteLine("0. Exit");
-            Console.WriteLine("Select type of policy: ");
+            Console.Write("Select type of policy: ");
         }
 
         static void initRiderList(List<Rider> riderList)
@@ -131,7 +128,7 @@ namespace AOOAD_Ass
         static void CreatePolicy(List<Policy> policyList, List<Rider> riderList)
         {
             //Variables needed
-            int clientid;
+            string clientid;
             int option;
             string policyType = "";
             string severity = "";
@@ -148,7 +145,7 @@ namespace AOOAD_Ass
 
             //Before Policy
             Console.Write("Enter Client's ID: ");
-            clientid = Convert.ToInt32(Console.ReadLine());
+            clientid = Console.ReadLine();
             CreatePolicyMenu();
             option = Convert.ToInt32(Console.ReadLine());
 
@@ -174,17 +171,14 @@ namespace AOOAD_Ass
                 {
                     Console.WriteLine("Error! Please enter only Low, Medium or High.");
                 }
-                Console.WriteLine("Terms and Conditions Test"); // Add the terms and condition thing here.
             }
             else if (option == 2) //Car
             {
                 policyType = "Car";
-                Console.WriteLine("Terms and Conditions Test"); // Add the terms and condition thing here.
             }
             else if (option == 3) //Travel
             {
                 policyType = "Travel";
-                Console.WriteLine("Terms and Conditions Test"); // Add the terms and condition thing here.
             }
             else if (option == 0) //Exit
             {
@@ -262,24 +256,18 @@ namespace AOOAD_Ass
                     Console.WriteLine("Insurance Policy created.");
                     if (option == 1) //Medical
                     {
-                        for (int i = 0; i < policyList.Count; i++)
-                        {
-                            Policy p = new Medical(terms, dueDate, maturityDate, riderList, payout, periodic, payment, severity);
-                        }
+                        Policy p = new Medical(terms, dueDate, maturityDate, riderList, payout, periodic, payment, severity);
+                        policyList.Add(p);
                     }
                     else if (option == 2) //Car
                     {
-                        for (int i = 0; i < policyList.Count; i++)
-                        {
-                            Policy p = new Car(terms, dueDate, maturityDate, riderList, payout, periodic, payment);
-                        }
+                        Policy p = new Car(terms, dueDate, maturityDate, riderList, payout, periodic, payment);
+                        policyList.Add(p);
                     }
                     else if (option == 3) //Travel
                     {
-                        for (int i = 0; i < policyList.Count; i++)
-                        {
-                            Policy p = new Travel(terms, dueDate, maturityDate, riderList, payout, periodic, payment);
-                        }
+                        Policy p = new Travel(terms, dueDate, maturityDate, riderList, payout, periodic, payment);
+                        policyList.Add(p);
                     }
                     payout = true;
                 }
