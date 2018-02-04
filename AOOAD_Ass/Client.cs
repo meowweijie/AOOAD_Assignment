@@ -10,6 +10,7 @@ namespace AOOAD_Ass
 {
     class Client
     {
+
         private string clientNo;
 
         public string ClientNo
@@ -24,7 +25,17 @@ namespace AOOAD_Ass
 
         private PolicyCollection ownedPolicies;
 
+        public Client(string name, string address, string accountNo, PolicyCollection pc)
+        {
+            Name = name;
+            Address = address;
+            AccountNo = accountNo;
+            ownedPolicies = pc;
+        }
+        public Client()
+        {
 
+        }
 
         //Operations
         public void Pay(float amount)

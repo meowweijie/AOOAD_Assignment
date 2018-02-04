@@ -84,6 +84,11 @@ namespace AOOAD_Ass
             Rider rider3 = new Rider(3, riderType3, amount3);
         }
 
+        static void initClientList()
+        {
+            Client c1 = new Client("Timmy", "This Street Blk 20", "12345678", new PolicyCollection());
+        }
+
         static void CreatePolicy(List<Policy> policyList, List<Rider> riderList)
         {
             //Variables needed
