@@ -13,9 +13,9 @@ namespace AOOAD_Ass
         private List<Policy> ownedPolicies = new List<Policy>();
 
         //Methods
-        public void AddPolicy()
+        public void AddPolicy(Policy p)
         {
-
+            ownedPolicies.Add(p);
         }
 
         public void CreateIterator()

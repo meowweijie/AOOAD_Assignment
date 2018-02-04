@@ -28,7 +28,7 @@ namespace AOOAD_Ass.State
         public void LapsePolicy()
         {
             
-            policy.setState(policy.getLapsedState());
+            //policy.setState(policy.getLapsedState());
             Console.WriteLine("Policy is Lapsed.");
         }
 
@@ -37,7 +37,7 @@ namespace AOOAD_Ass.State
             if(policy.PayOut==true || DateTime.Now > policy.MaturityDate)
             {
                 Console.WriteLine("Policy paid out/matured. Policy is terminated.");
-                policy.setState(policy.getTerminatedState());
+                //policy.setState(policy.getTerminatedState());
             }
             else { Console.WriteLine("Unable to terminate policy."); }
         }

@@ -14,13 +14,14 @@ namespace AOOAD_Ass
     {
         static void Main(string[] args)
         {
+            editpol();
             // Test data
             List<Policy> PolicyList = new List<Policy>();
             List<Client> ClientList = new List<Client>();
             List<Agent> AgentList = new List<Agent>();
 
 
-            Medical mpolicy = new Medical("");
+            Medical mpolicy = new Medical();
             Travel tpolicy = new Travel();
             Car cpolicy = new Car();
 
@@ -189,6 +190,13 @@ namespace AOOAD_Ass
             {
                 return "";
             }
+        }
+        static void editpol()
+        {
+            Agent M = new SeniorAgent();
+            Policy p = new Medical();
+            M.addPolicy(p);
+            M.editPolicy(p);
         }
     }
 }
