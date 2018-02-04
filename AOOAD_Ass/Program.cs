@@ -190,7 +190,7 @@ namespace AOOAD_Ass
                         Console.Write("Select your type of rider: ");
                         rider = Convert.ToInt32(Console.ReadLine());
                         Console.WriteLine("Insurance coverage has increased.");
-                        //Should I increase the coverage here... or deduct later?
+                        //Implementation
                     }
 
                 }
