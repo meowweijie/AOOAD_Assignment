@@ -14,7 +14,6 @@ namespace AOOAD_Ass
     {
         static void Main(string[] args)
         {
-            editpol();
             // Test data
             List<Policy> PolicyList = new List<Policy>();
             List<Client> ClientList = new List<Client>();

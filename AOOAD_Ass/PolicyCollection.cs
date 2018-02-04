@@ -17,6 +17,10 @@ namespace AOOAD_Ass
         {
             ownedPolicies.Add(p);
         }
+        public void cancelPolicy(Policy p)
+        {
+            ownedPolicies.Remove(p);
+        }
 
         public void CreateIterator()
         {
