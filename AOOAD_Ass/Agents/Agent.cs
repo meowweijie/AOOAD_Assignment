@@ -78,9 +78,9 @@ namespace AOOAD_Ass.Agents
             Rider r = new Rider(rno, rtype, ramount);
             policy.AddRider(r);
         }
-        private void cancelPolicy(Policy policy)
+        private void cancelPolicy(Policy policy)        // cancel policy
         {
-            ownedPolicies.cancelPolicy(policy);
+            ownedPolicies.cancelPolicy(policy);             
         }
         private void payPremiumByCheque(Policy policy)
         {
