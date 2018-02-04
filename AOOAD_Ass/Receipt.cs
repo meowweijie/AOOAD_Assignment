@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AOOAD_Ass.Policies;
 
 namespace AOOAD_Ass
 {
@@ -35,12 +36,21 @@ namespace AOOAD_Ass
             set { amount = value; }
         }
 
-        public Receipt(float amt)
+        private Policy policy;
+
+        public Policy Policy
+        {
+            get { return policy; }
+            set { policy = value; }
+        }
+
+        public Receipt(float amt, Policy policy)
         {
             receiptNo = string.Format("R{0:0000}", receiptCounter);
             ++receiptCounter;
             date = DateTime.Today;
             amount = amt;
+            this.policy = policy;
         }
 
     }
