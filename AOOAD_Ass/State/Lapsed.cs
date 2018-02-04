@@ -17,7 +17,7 @@ namespace AOOAD_Ass.State
         }
         public void ActivatePolicy()
         {
-            //policy.setState(policy.getActiveState());
+            policy.SetState(policy.GetActiveState());
             Console.WriteLine("Successfully changed from lapsed to active state!");
         }
 
@@ -42,7 +42,7 @@ namespace AOOAD_Ass.State
                 Console.WriteLine("Customer terminated this, a penalty fee must be charged");
             else
                 Console.WriteLine("Agent terminated this, no penalty is charged");
-            //policy.setState(policy.getTerminatedState());
+            policy.SetState(policy.GetTerminatedState());
         }
     }
 }

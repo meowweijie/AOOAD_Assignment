@@ -9,9 +9,11 @@ namespace AOOAD_Ass.Policies
 {
     abstract class Policy
     {
+        private static int policyCounter = 1;
         //basic attributes
         public string PolicyNo { get; set; }
         public string TermsCondition { get; set; }
+        public DateTime DueDate { get; set; }
         public DateTime MaturityDate { get; set; }
         List<Rider> RidersList = new List<Rider>();
         public bool PayOut { get; set; }
@@ -35,9 +37,22 @@ namespace AOOAD_Ass.Policies
         //Constructor
         public Policy()
         {
+            PolicyNo = string.Format("S{0:0000}", policyCounter);
             activeState = new Active(this);
             lapsedState = new Lapsed(this);
             terminatedState = new Terminated(this);
+            ++policyCounter;
+        }
+
+        public Policy(string terms, DateTime duedate, DateTime maturitydate, List<Rider> riderlist, bool payout, bool periodic, float premium) : this()
+        {
+            TermsCondition = terms;
+            DueDate = duedate;
+            MaturityDate = maturitydate;
+            RidersList = riderlist;
+            PayOut = payout;
+            Periodic = periodic;
+            Premium = premium;
         }
 
         // State Pattern methods
@@ -76,7 +91,115 @@ namespace AOOAD_Ass.Policies
         public PolicyState GetLapsedState() { return lapsedState; }
         public PolicyState GetTerminatedState() { return terminatedState; }
 
+        //Checks states
+        public bool IsExisting()
+        {
+            if (state == terminatedState)
+                return false;
+            else
+                return true;
+        }
+
+        public bool IsMatured()
+        {
+            if (DateTime.Now>MaturityDate || PayOut==true)
+                return true;
+            else
+                return false;
+        }
+
+        public bool IsTerminated()
+        {
+            if (state == terminatedState)
+                return true;
+            else
+                return false;
+        }
+
         // End of State Pattern methods
+
+
+        //Display policy details
+        public void DisplayDetails()
+        {
+            Console.WriteLine("Policy No: {0}", PolicyNo);
+            Console.WriteLine("Terms: {0}", TermsCondition);
+            Console.WriteLine("Premium Amount: {0}", Premium);
+            Console.WriteLine("Due Date: {0}", DueDate);
+            Console.WriteLine("Maturity Date: {0}", MaturityDate);
+
+            foreach (Rider r in RidersList)
+                Console.Write(r.riderType + "  ");
+
+            string payoutInfo;
+            if (PayOut)
+                payoutInfo = "Paid Out";
+            else
+                payoutInfo = "Not Paid Out yet";
+
+            Console.WriteLine("Pay Out: {0}", payoutInfo);
+
+            string currentstate = "";
+            if(state == activeState)
+                currentstate = "Active";
+            else if (state == lapsedState)
+                currentstate = "Lapsed";
+            else if (state == terminatedState)
+                currentstate = "Terminated";
+
+            Console.WriteLine("Current state: {0}", currentstate);
+        }
+
+        //Other Operations
+        public float CalculatePayOut()
+        {
+            float payout = 0;
+
+            //Implementations
+
+            return payout;
+        }
+
+        public void GenerateAlert()
+        {
+            Console.WriteLine("Generate Alert");
+            Console.WriteLine("1. Email Alert");
+            Console.WriteLine("2. Print Alert");
+            Console.WriteLine("3. Email and Print Alert");
+
+            Console.WriteLine();
+
+            int opt = Convert.ToInt32(Console.ReadLine());
+            if (opt == 1)
+            { 
+                //Implementation
+                Console.WriteLine("Email alert generation request sent to email server.");
+
+                Lapsed();
+            }
+            else if (opt == 2)
+            {
+                //Implementation
+                Console.WriteLine("Printed alert generation request sent to printer server.");
+
+                Lapsed();
+            }
+            else if (opt == 3)
+            {
+                //Implementation
+                Console.WriteLine("Email alert generation request sent to email server.");
+
+                //Implementation
+                Console.WriteLine("Printed alert generation request sent to printer server.");
+
+                Lapsed();
+            }
+            else
+            {
+                Console.WriteLine("Invalid option.");
+            }
+        }
+
 
     }
 }

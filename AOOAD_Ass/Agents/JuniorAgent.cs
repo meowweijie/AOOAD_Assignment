@@ -8,6 +8,16 @@ namespace AOOAD_Ass.Agents
 {
     class JuniorAgent : Agent
     {
+        public JuniorAgent() : base()
+        {
+
+        }
+
+        public JuniorAgent(string name, float commission) : base(name, commission)
+        {
+
+        }
+
         public override float CalculateCommission()
         {
             float commission = 0;

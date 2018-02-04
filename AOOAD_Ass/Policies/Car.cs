@@ -9,14 +9,16 @@ namespace AOOAD_Ass.Policies
     class Car:Policy
     {
         public Car() { }
-        public Car(Policy p)
+        public Car(string terms, DateTime duedate, DateTime maturitydate, List<Rider> riderlist, bool payout, bool periodic, float premium) : base(terms, duedate, maturitydate, riderlist, payout, periodic, premium)
         {
             
         }
 
         public override float CalculatePayout()
         {
-            return 0;
+            float x = 0;
+            //implementation
+            return x;
         }
     }
 }

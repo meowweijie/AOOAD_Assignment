@@ -8,7 +8,7 @@ using AOOAD_Ass.Policies;
 
 namespace AOOAD_Ass.Iterator
 {
-    interface Iterator
+    interface PolicyIterator
     {
         Boolean HasNext();
         Policy Next();
