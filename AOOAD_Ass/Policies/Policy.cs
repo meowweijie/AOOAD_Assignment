@@ -9,6 +9,7 @@ namespace AOOAD_Ass.Policies
 {
     abstract class Policy
     {
+        private static int policyCounter = 1;
         //basic attributes
         public string PolicyNo { get; set; }
         public string TermsCondition { get; set; }
@@ -36,14 +37,15 @@ namespace AOOAD_Ass.Policies
         //Constructor
         public Policy()
         {
+            PolicyNo = string.Format("S{0:0000}", policyCounter);
             activeState = new Active(this);
             lapsedState = new Lapsed(this);
             terminatedState = new Terminated(this);
+            ++policyCounter;
         }
 
-        public Policy(string polNo, string terms, DateTime duedate, DateTime maturitydate, List<Rider> riderlist, bool payout, bool periodic, float premium)
+        public Policy(string terms, DateTime duedate, DateTime maturitydate, List<Rider> riderlist, bool payout, bool periodic, float premium) : this()
         {
-            PolicyNo = polNo;
             TermsCondition = terms;
             DueDate = duedate;
             MaturityDate = maturitydate;

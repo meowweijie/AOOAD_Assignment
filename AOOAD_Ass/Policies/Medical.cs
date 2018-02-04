@@ -9,7 +9,7 @@ namespace AOOAD_Ass.Policies
     class Medical:Policy
     {
         public Medical() { }
-        public Medical(string polNo, string terms, DateTime duedate, DateTime maturitydate, List<Rider> riderlist, bool payout, bool periodic, float premium, string s): base(polNo, terms, duedate, maturitydate, riderlist, payout, periodic, premium)
+        public Medical(string terms, DateTime duedate, DateTime maturitydate, List<Rider> riderlist, bool payout, bool periodic, float premium, string s): base(terms, duedate, maturitydate, riderlist, payout, periodic, premium)
         {
             severity = s;
         }

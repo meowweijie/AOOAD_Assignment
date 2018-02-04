@@ -10,6 +10,7 @@ namespace AOOAD_Ass
 {
     class Client
     {
+        private static int clientCounter = 1;
 
         private string clientNo;
 
@@ -27,10 +28,12 @@ namespace AOOAD_Ass
 
         public Client(string name, string address, string accountNo, PolicyCollection pc)
         {
+            clientNo = string.Format("C{0:0000}", clientCounter);
             Name = name;
             Address = address;
             AccountNo = accountNo;
             ownedPolicies = pc;
+            ++clientCounter;
         }
         public Client()
         {

@@ -26,6 +26,9 @@ namespace AOOAD_Ass
             RiderList = new List<Rider>();
 
             initRiderList(RiderList);
+            initClientList();
+            foreach (Client c in ClientList)
+                Console.WriteLine("ClientNo is: " + c.ClientNo);
 
             Medical mpolicy = new Medical();
             Travel tpolicy = new Travel();
@@ -87,6 +90,11 @@ namespace AOOAD_Ass
         static void initClientList()
         {
             Client c1 = new Client("Timmy", "This Street Blk 20", "12345678", new PolicyCollection());
+            Client c2 = new Client("Rick", "Rick Street Blk 69", "11111111", new PolicyCollection());
+            Client c3 = new Client("Morty", "Rick Street Blk 69", "22222222", new PolicyCollection());
+            ClientList.Add(c1);
+            ClientList.Add(c2);
+            ClientList.Add(c3);
         }
 
         static void CreatePolicy(List<Policy> policyList, List<Rider> riderList)
@@ -225,21 +233,21 @@ namespace AOOAD_Ass
                     {
                         for (int i = 0; i < policyList.Count; i++)
                         {
-                            Policy p = new Medical(policyList.Count+1.ToString(), terms, dueDate, maturityDate, riderList, payout, periodic, payment, severity);
+                            Policy p = new Medical(terms, dueDate, maturityDate, riderList, payout, periodic, payment, severity);
                         }
                     }
                     else if (option == 2) //Car
                     {
                         for (int i = 0; i < policyList.Count; i++)
                         {
-                            Policy p = new Car(policyList.Count + 1.ToString(), terms, dueDate, maturityDate, riderList, payout, periodic, payment);
+                            Policy p = new Car(terms, dueDate, maturityDate, riderList, payout, periodic, payment);
                         }
                     }
                     else if (option == 3) //Travel
                     {
                         for (int i = 0; i < policyList.Count; i++)
                         {
-                            Policy p = new Travel(policyList.Count + 1.ToString(), terms, dueDate, maturityDate, riderList, payout, periodic, payment);
+                            Policy p = new Travel(terms, dueDate, maturityDate, riderList, payout, periodic, payment);
                         }
                     }
                     payout = true;

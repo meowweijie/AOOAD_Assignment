@@ -10,6 +10,7 @@ namespace AOOAD_Ass.Agents
     abstract class Agent
     {
         //Attributes
+        private static int agentCounter = 1;
         private string agentNo;
 
         public string AgentNo
@@ -29,6 +30,20 @@ namespace AOOAD_Ass.Agents
         public string Name { get; set; }
 
         private PolicyCollection ownedPolicies;
+
+        public Agent()
+        {
+            agentNo = string.Format("A{0:0000}", agentCounter);
+            ++agentCounter;
+        }
+
+        public Agent(string name, float commission)
+        {
+            agentNo = string.Format("A{0:0000}", agentCounter);
+            Name = name;
+            this.commission = commission;
+            ++agentCounter;
+        }
 
         //Methods
 
