@@ -34,21 +34,24 @@ namespace AOOAD_Ass
             Travel tpolicy = new Travel();
             Car cpolicy = new Car();
 
-            //Main Menu
+            //Main 
             int option;
-            MainMenu();
-            Console.Write("Option: ");
-            option = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine();
+            while (true)
+            {
+                MainMenu();
+                Console.Write("Option: ");
+                option = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine();
 
-            if (option == 1)
-            {
-                CreatePolicy(PolicyList, RiderList);
+                if (option == 1)
+                    CreatePolicy(PolicyList, RiderList);
+                else if (option == 2)
+                    viewPolicies();
+                else if (option == 3)
+                    break;
             }
-            else if (option == 2)
-            {
-                viewPolicies();
-            }
+            Console.WriteLine("Good Bye!");
+            Console.ReadLine();
         }
 
         static void MainMenu()
@@ -294,7 +297,7 @@ namespace AOOAD_Ass
                 Console.WriteLine("----------- Filter Policies -------------");
                 Console.WriteLine("[1] Client");
                 Console.WriteLine("[2] Agent");
-                Console.WriteLine("Option: ");
+                Console.Write("Option: ");
                 opt = Convert.ToInt32(Console.ReadLine());
                 Console.WriteLine();
 
@@ -367,7 +370,7 @@ namespace AOOAD_Ass
                         opt = Convert.ToInt32(Console.ReadLine());
 
                         if (opt == 1)
-                            Console.WriteLine("Call edit policy use case");
+                            editpol();
                         else if (opt == 2)
                             p.GenerateAlert();
                         else if (opt == 3)
@@ -390,6 +393,7 @@ namespace AOOAD_Ass
                     if (p.PolicyNo == polNo)
                         policy = p;
                 }
+                Console.WriteLine();
                 policy.DisplayDetails();
             }
         }
