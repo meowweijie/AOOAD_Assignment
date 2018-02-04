@@ -43,16 +43,17 @@ namespace AOOAD_Ass
                 option = Convert.ToInt32(Console.ReadLine());
                 Console.WriteLine();
 
-            if (option == 1)
-            {
-                CreatePolicy(PolicyList, RiderList);
+                if (option == 1)
+                {
+                    CreatePolicy(PolicyList, RiderList);
+                }
+                else if (option == 2)
+                {
+                    ViewPolicies();
+                }
+                Console.WriteLine("Good Bye!");
+                Console.ReadLine();
             }
-            else if (option == 2)
-            {
-                ViewPolicies();
-            }
-            Console.WriteLine("Good Bye!");
-            Console.ReadLine();
         }
 
         static void MainMenu()
