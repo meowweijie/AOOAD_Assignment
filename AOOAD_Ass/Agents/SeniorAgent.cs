@@ -13,7 +13,7 @@ namespace AOOAD_Ass.Agents
 
         }
 
-        public SeniorAgent(string name, float commission) : base(name, commission)
+        public SeniorAgent(string name, float commission, PolicyCollection pc) : base(name, commission, pc)
         {
 
         }

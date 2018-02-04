@@ -27,8 +27,8 @@ namespace AOOAD_Ass
 
             initRiderList(RiderList);
             initClientList();
-            initPolicyList();
             initAgentList();
+            initPolicyList();
 
             Medical mpolicy = new Medical();
             Travel tpolicy = new Travel();
@@ -36,20 +36,24 @@ namespace AOOAD_Ass
 
             //Main 
             int option;
-            while (true)
+            try
             {
-                MainMenu();
-                Console.Write("Option: ");
-                option = Convert.ToInt32(Console.ReadLine());
-                Console.WriteLine();
+                while (true)
+                {
+                    MainMenu();
+                    Console.Write("Option: ");
+                    option = Convert.ToInt32(Console.ReadLine());
+                    Console.WriteLine();
 
-                if (option == 1)
-                    CreatePolicy(PolicyList, RiderList);
-                else if (option == 2)
-                    viewPolicies();
-                else if (option == 3)
-                    break;
-            }
+                    if (option == 1)
+                        CreatePolicy(PolicyList, RiderList);
+                    else if (option == 2)
+                        viewPolicies();
+                    else if (option == 3)
+                        break;
+                }
+            } catch (Exception){ }
+           
             Console.WriteLine("Good Bye!");
             Console.ReadLine();
         }
@@ -99,17 +103,28 @@ namespace AOOAD_Ass
 
         static void initAgentList()
         {
-            AgentList.Add(new JuniorAgent("Henry", 420));
-            AgentList.Add(new NormalAgent("Tim", 600));
-            AgentList.Add(new SeniorAgent("James", 1337));
-            AgentList.Add(new SeniorAgent("Help", 911));
+            AgentList.Add(new JuniorAgent("Henry", 420, new PolicyCollection()));
+            AgentList.Add(new NormalAgent("Tim", 600, new PolicyCollection()));
+            AgentList.Add(new SeniorAgent("James", 1337, new PolicyCollection()));
+            AgentList.Add(new SeniorAgent("Help", 911, new PolicyCollection()));
         }
         static void initPolicyList()
         {
             PolicyList.Add(new Car("Hehe xd", Convert.ToDateTime("31-Dec-18"), Convert.ToDateTime("31-Dec-18"), new List<Rider>(), false, true, 1000));
-            PolicyList.Add(new Car("I like tide pods", Convert.ToDateTime("31-Dec-18"), Convert.ToDateTime("31-Dec-18"), new List<Rider>(), false, true, 2000));
+            PolicyList.Add(new Travel("Its fine...", Convert.ToDateTime("31-Dec-18"), Convert.ToDateTime("31-Dec-18"), new List<Rider>(), false, true, 5000));
+            PolicyList.Add(new Car("QAQ", Convert.ToDateTime("31-Dec-18"), Convert.ToDateTime("31-Dec-18"), new List<Rider>(), false, true, 2500));
+            PolicyList.Add(new Car("Why", Convert.ToDateTime("31-Dec-18"), Convert.ToDateTime("31-Dec-18"), new List<Rider>(), false, true, 3000));
+            PolicyList.Add(new Medical("I like tide pods", Convert.ToDateTime("31-Dec-18"), Convert.ToDateTime("31-Dec-18"), new List<Rider>(), false, true, 2000, "HIGH"));
             PolicyList.Add(new Car(":)", Convert.ToDateTime("31-Dec-18"), Convert.ToDateTime("31-Dec-18"), new List<Rider>(), false, false, 5000));
-            PolicyList.Add(new Car("Everything is gonna be fine", Convert.ToDateTime("31-Dec-18"), Convert.ToDateTime("31-Dec-18"), new List<Rider>(), false, false, 9999));
+            PolicyList.Add(new Travel("Everything is gonna be fine", Convert.ToDateTime("31-Dec-18"), Convert.ToDateTime("31-Dec-18"), new List<Rider>(), false, false, 9999));
+            ClientList[0].GetPolicyCollection().AddPolicy(PolicyList[0]);
+            ClientList[0].GetPolicyCollection().AddPolicy(PolicyList[1]);
+            ClientList[0].GetPolicyCollection().AddPolicy(PolicyList[2]);
+            ClientList[1].GetPolicyCollection().AddPolicy(PolicyList[3]);
+            ClientList[1].GetPolicyCollection().AddPolicy(PolicyList[4]);
+            ClientList[1].GetPolicyCollection().AddPolicy(PolicyList[5]);
+
+
         }
 
         static void CreatePolicy(List<Policy> policyList, List<Rider> riderList)
@@ -288,7 +303,9 @@ namespace AOOAD_Ass
             // User selects display all policies option
             if (opt == 1)
             {
-                //Implementation
+                foreach (Policy p in PolicyList)
+                    p.DisplayDetails();
+
                 Console.WriteLine("All policies in system is displayed.");
             }
             // Filter policies
@@ -361,6 +378,7 @@ namespace AOOAD_Ass
                         else if (agent != null)
                             p = agent.FindPolicy(polNo);
 
+                        Console.WriteLine();
                         p.DisplayDetails();
                         Console.WriteLine("--------- Action -------------");
                         Console.WriteLine("1. Edit Policy");

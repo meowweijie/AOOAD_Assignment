@@ -122,6 +122,7 @@ namespace AOOAD_Ass.Policies
         //Display policy details
         public void DisplayDetails()
         {
+            Console.WriteLine();
             Console.WriteLine("Policy No: {0}", PolicyNo);
             Console.WriteLine("Terms: {0}", TermsCondition);
             Console.WriteLine("Premium Amount: {0}", Premium);
@@ -148,6 +149,7 @@ namespace AOOAD_Ass.Policies
                 currentstate = "Terminated";
 
             Console.WriteLine("Current state: {0}", currentstate);
+            Console.WriteLine();
         }
 
         //Other Operations

@@ -14,7 +14,7 @@ namespace AOOAD_Ass.Agents
 
         }
 
-        public NormalAgent(string name, float commission) : base(name, commission)
+        public NormalAgent(string name, float commission, PolicyCollection pc) : base(name, commission, pc)
         {
 
         }

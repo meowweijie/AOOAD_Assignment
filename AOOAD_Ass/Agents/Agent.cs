@@ -36,7 +36,7 @@ namespace AOOAD_Ass.Agents
             set { commission = value; }
         }
 
-        private PolicyCollection ownedPolicies = new PolicyCollection();
+        private PolicyCollection ownedPolicies;
 
         public Agent()
         {
@@ -44,10 +44,11 @@ namespace AOOAD_Ass.Agents
             ++agentCounter;
         }
 
-        public Agent(string name, float commission) : this()
+        public Agent(string name, float commission, PolicyCollection pc) : this()
         {
             this.name = name;
             this.commission = commission;
+            this.ownedPolicies = pc;
         }
         //Methods
         public void ViewPolicies(string type)
@@ -117,6 +118,11 @@ namespace AOOAD_Ass.Agents
         private void payPremiumByCheque(Policy policy)
         {
             //implemetntation
+        }
+
+        public PolicyCollection GetPolicyCollection()
+        {
+            return ownedPolicies;
         }
     }
 }

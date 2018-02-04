@@ -55,6 +55,11 @@ namespace AOOAD_Ass
         {
              return ownedPolicies.SearchPolicy(id);
         }
+        
+        public PolicyCollection GetPolicyCollection()
+        {
+            return ownedPolicies;
+        }
 
 
     }
