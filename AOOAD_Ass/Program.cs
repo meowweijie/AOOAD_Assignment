@@ -246,39 +246,6 @@ namespace AOOAD_Ass
             }
             Console.ReadKey();
         }
-
-        static void PolicyMenu(Policy p)
-        {
-
-
-            Console.WriteLine("1. Edit Policy");
-            Console.WriteLine("2. Generate Alert");
-            Console.WriteLine("3. Exit");
-
-            Console.WriteLine();
-
-            int opt = Convert.ToInt32(Console.ReadLine());
-            if (opt == 1)
-            {
-
-            }
-            else if (opt == 2)
-            {
-                if (DateTime.Now > p.DueDate)
-                {
-                    p.GenerateAlert();
-                }
-            }
-            else if (opt == 3)
-            {
-                return;
-            }
-            else
-            {
-                return;
-            }
-
-        }
         static void viewPolicies()
         {
             int opt;
@@ -290,7 +257,7 @@ namespace AOOAD_Ass
             opt = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine();
 
-            // Display all policies
+            // User selects display all policies option
             if (opt == 1)
             {
                 //Implementation
@@ -306,82 +273,100 @@ namespace AOOAD_Ass
                 opt = Convert.ToInt32(Console.ReadLine());
                 Console.WriteLine();
 
+                string id = "";
+                Client client = null;
+                Agent agent = null;
                 // Filter by Client
                 if (opt == 1)
                 {
-                    Client client = null;
-                    string user = Convert.ToString(Console.ReadLine());
-                    for (int i = 0; i < ClientList.Count; i++)
+                    Console.Write("Enter Client No: ");
+                    id = Convert.ToString(Console.ReadLine());
+                    foreach(Client c in ClientList)
                     {
-                        if (ClientList[i].ClientNo == user)
-                            client = ClientList[i];
+                        if (c.ClientNo == id)
+                            client = c;
                     }
-                    displayFilterTypes();
-                    opt = Convert.ToInt32(Console.ReadLine());
-                    
-                    client.ViewPolicies(getFilterType(opt));
-
-                    Console.WriteLine();
-                    Console.Write("Enter policy no. to view: ");
-                    string id = Console.ReadLine();
-
-                    Policy p = client.FindPolicy(id);
-
-                    PolicyMenu(p);
                 }
                 // Filter by Agent
                 else if (opt == 2)
                 {
-                    Agent agent = null;
-                    string user = Convert.ToString(Console.ReadLine());
-                    for (int i = 0; i < AgentList.Count; i++)
+                    Console.Write("Enter Agent Number: ");
+                    id = Convert.ToString(Console.ReadLine());
+                    foreach(Agent a in AgentList)
                     {
-                        if (AgentList[i].AgentNo == user)
-                        {
-                            agent = AgentList[i];
-                        }
-                    }
-
-                    if (agent != null)
-                    {
-                        string type = ViewFilters();
-                        agent.ViewPolicies(type);
-
-                        Console.WriteLine();
-                        Console.Write("Enter policy no. to view: ");
-                        string id = Console.ReadLine();
-                        Policy p = agent.FindPolicy(id);
-
-                        PolicyMenu(p);
+                        if (a.AgentNo == id)
+                            agent = a;
                     }
                 }
+
+                Console.WriteLine("------------ Filter Types -------------");
+                Console.WriteLine("[1] Existing");
+                Console.WriteLine("[2] Terminated");
+                Console.WriteLine("[3] Matured");
+                Console.Write("Option: ");
+                opt = Convert.ToInt32(Console.ReadLine());
+                // Getting the type
+                string type = "";
+                if (opt == 1)
+                    type = "Existing";
+                else if (opt == 2)
+                    type = "Terminated";
+                else if (opt == 3)
+                    type = "Matured";
+
+                while (true)
+                {
+                    // Checking and displaying the policies
+                    if (client != null)
+                        client.ViewPolicies(type);
+                    else if (client != null)
+                        agent.ViewPolicies(type);
+
+                    Console.WriteLine("[0] Exit");
+                    Console.Write("Option: ");
+                    string polNo = Console.ReadLine();
+                    if (polNo != "0")
+                    {
+                        Policy p = null;
+                        if (client != null)
+                            p = client.FindPolicy(polNo);
+                        else if (agent != null)
+                            p = agent.FindPolicy(polNo);
+
+                        p.DisplayDetails();
+                        Console.WriteLine("--------- Action -------------");
+                        Console.WriteLine("1. Edit Policy");
+                        Console.WriteLine("2. Generate Alert");
+                        Console.WriteLine("3. Cancel");
+                        Console.Write("Option: ");
+                        opt = Convert.ToInt32(Console.ReadLine());
+
+                        if (opt == 1)
+                            Console.WriteLine("Call edit policy use case");
+                        else if (opt == 2)
+                            p.GenerateAlert();
+                        else if (opt == 3)
+                            continue;
+                    }
+                    // Selected the exit option (Alt Flow 17)
+                    else
+                        break;
+                }
             }
-            // View a specific policy
+            // User selects view a specific policy option
             else if (opt == 3)
             {
+                Console.Write("Enter the policyNo: ");
+                string polNo = Console.ReadLine();
 
+                Policy policy = null;
+                foreach(Policy p in PolicyList)
+                {
+                    if (p.PolicyNo == polNo)
+                        policy = p;
+                }
+                policy.DisplayDetails();
             }
         }
-        static void displayFilterTypes()
-        {
-            Console.WriteLine("------------ Filter Types~ -------------");
-            Console.WriteLine("[1] Existing");
-            Console.WriteLine("[2] Terminated");
-            Console.WriteLine("[3] Matured");
-            Console.Write("Option: ");
-        }
-        static string getFilterType(int opt)
-        {
-            string type = "";
-            if (opt == 1)
-                type = "Existing";
-            else if (opt == 2)
-                type = "Terminated";
-            else if (opt == 3)
-                type = "Matured";
-            return type;
-        }
-
-
     }
 }

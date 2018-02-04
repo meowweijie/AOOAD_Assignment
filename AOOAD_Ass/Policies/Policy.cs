@@ -111,27 +111,28 @@ namespace AOOAD_Ass.Policies
             Console.WriteLine("Policy No: {0}", PolicyNo);
             Console.WriteLine("Terms: {0}", TermsCondition);
             Console.WriteLine("Premium Amount: {0}", Premium);
+            Console.WriteLine("Due Date: {0}", DueDate);
+            Console.WriteLine("Maturity Date: {0}", MaturityDate);
+
+            foreach (Rider r in RidersList)
+                Console.Write(r.riderType + "  ");
 
             string payoutInfo;
             if (PayOut)
                 payoutInfo = "Paid Out";
             else
                 payoutInfo = "Not Paid Out yet";
+
             Console.WriteLine("Pay Out: {0}", payoutInfo);
 
             string currentstate = "";
             if(state == activeState)
-            {
                 currentstate = "Active";
-            }
             else if (state == lapsedState)
-            {
                 currentstate = "Lapsed";
-            }
             else if (state == terminatedState)
-            {
                 currentstate = "Terminated";
-            }
+
             Console.WriteLine("Current state: {0}", currentstate);
         }
 
