@@ -31,11 +31,12 @@ namespace AOOAD_Ass
             Travel tpolicy = new Travel();
             Car cpolicy = new Car();
 
-                       
+
 
             //Main Menu
             int option;
             MainMenu();
+            Console.Write("Option: ");
             option = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine();
 
@@ -45,18 +46,18 @@ namespace AOOAD_Ass
             }
             else if (option == 2)
             {
-
+                viewPolicies();
             }
         }
 
         static void MainMenu()
         {
             Console.WriteLine("1. Create Insurance Policy.");
-            Console.WriteLine("2. View all policies.");
+            Console.WriteLine("2. View Policies.");
             Console.WriteLine("3. Exit.");
 
             Console.WriteLine();
-            
+
         }
 
         static void CreatePolicyMenu()
@@ -108,12 +109,12 @@ namespace AOOAD_Ass
             option = Convert.ToInt32(Console.ReadLine());
 
             //Policy 
-            if(option == 1) //Medical
+            if (option == 1) //Medical
             {
                 policyType = "Medical";
                 Console.Write("Enter Injury Severity(Low, Medium, High): ");
                 severity = Console.ReadLine();
-                if(severity == "Low")
+                if (severity == "Low")
                 {
                     //implementation
                 }
@@ -141,7 +142,7 @@ namespace AOOAD_Ass
                 policyType = "Travel";
                 Console.WriteLine("Terms and Conditions Test"); // Add the terms and condition thing here.
             }
-            else if(option == 0) //Exit
+            else if (option == 0) //Exit
             {
                 Console.WriteLine("Insurance Policy was not created.");
             }
@@ -169,16 +170,16 @@ namespace AOOAD_Ass
                 }
                 Console.Write("Does the policy have a maturity date?(Y/N): ");
                 hasMaturityDate = Console.ReadLine();
-                if(hasMaturityDate == "Y") // Have Maturity Date
+                if (hasMaturityDate == "Y") // Have Maturity Date
                 {
                     Console.Write("Enter policy maturity date: ");
                     maturityDate = DateTime.Parse(Console.ReadLine());
                     Console.WriteLine("Policy holder will be given a lump sum payout.");
                 }
                 Console.Write("Does the policy have optional riders?(Y/N): ");
-                if(Console.ReadLine()== "Y") //Optional Rider
+                if (Console.ReadLine() == "Y") //Optional Rider
                 {
-                    for(int i = 0; i < riderList.Count; i++)
+                    for (int i = 0; i < riderList.Count; i++)
                     {
                         Console.WriteLine(riderList[i]);
                         Console.Write("Select your type of rider: ");
@@ -190,7 +191,7 @@ namespace AOOAD_Ass
                 }
                 Console.WriteLine("ClientID: {0}", clientid);
                 Console.WriteLine("Policy Type: {0}", policyType);
-                if(policyType == "Medical")
+                if (policyType == "Medical")
                 {
                     Console.WriteLine("Severity: {0}", severity);
                 }
@@ -206,16 +207,16 @@ namespace AOOAD_Ass
                 }
                 if (hasMaturityDate == "Y")
                     Console.WriteLine("Maturity Date: {0}", Convert.ToString(maturityDate));
-                if(rider!=0)
+                if (rider != 0)
                 {
-                    for(int i = 0; i < riderList.Count; i++)
-                    Console.WriteLine("Rider: {0}", riderList[i].riderType);
+                    for (int i = 0; i < riderList.Count; i++)
+                        Console.WriteLine("Rider: {0}", riderList[i].riderType);
                 }
                 Console.Write("Confirm creation of policy?(Y/N): ");
-                if(Console.ReadLine() == "Y")
+                if (Console.ReadLine() == "Y")
                 {
                     Console.WriteLine("Insurance Policy created.");
-                    if(option == 1) //Medical
+                    if (option == 1) //Medical
                     {
                         for (int i = 0; i < policyList.Count; i++)
                         {
@@ -248,7 +249,7 @@ namespace AOOAD_Ass
 
         static void PolicyMenu(Policy p)
         {
-            
+
 
             Console.WriteLine("1. Edit Policy");
             Console.WriteLine("2. Generate Alert");
@@ -259,11 +260,11 @@ namespace AOOAD_Ass
             int opt = Convert.ToInt32(Console.ReadLine());
             if (opt == 1)
             {
-                
+
             }
             else if (opt == 2)
             {
-                if(DateTime.Now >p.DueDate)
+                if (DateTime.Now > p.DueDate)
                 {
                     p.GenerateAlert();
                 }
@@ -278,56 +279,34 @@ namespace AOOAD_Ass
             }
 
         }
-
-        static string ViewFilters()
-        {
-            Console.WriteLine("1. View Existing");
-            Console.WriteLine("2. View Matured");
-            Console.WriteLine("3. View Terminated");
-
-            Console.WriteLine();
-
-            int opt = Convert.ToInt32(Console.ReadLine());
-            if(opt ==1)
-            {
-                return "Existing";
-            }
-            else if(opt==2)
-            {
-                return "Matured";
-            }
-            else if(opt==3)
-            {
-                return "Terminated";
-            }
-            else
-            {
-                return "";
-            }
-        }
-
         static void viewPolicies()
         {
             int opt;
-            Console.WriteLine("View Policies options:");
-            Console.WriteLine("1. View all policies");
-            Console.WriteLine("2. Filter Policies");
-            Console.WriteLine("3. View a specific policy");
+            Console.WriteLine("-------------- View Policies ------------");
+            Console.WriteLine("[1] Display all policies");
+            Console.WriteLine("[2] Filter policies");
+            Console.WriteLine("[3] View a specific policy");
+            Console.Write("Option: ");
             opt = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine();
 
+            // Display all policies
             if (opt == 1)
             {
                 //Implementation
                 Console.WriteLine("All policies in system is displayed.");
             }
+            // Filter policies
             else if (opt == 2)
             {
-                Console.WriteLine("1. Client");
-                Console.WriteLine("2. Agent");
+                Console.WriteLine("----------- Filter Policies -------------");
+                Console.WriteLine("[1] Client");
+                Console.WriteLine("[2] Agent");
+                Console.WriteLine("Option: ");
                 opt = Convert.ToInt32(Console.ReadLine());
                 Console.WriteLine();
 
+                // Filter by Client
                 if (opt == 1)
                 {
                     Client client = null;
@@ -335,25 +314,22 @@ namespace AOOAD_Ass
                     for (int i = 0; i < ClientList.Count; i++)
                     {
                         if (ClientList[i].ClientNo == user)
-                        {
                             client = ClientList[i];
-                        }
                     }
+                    displayFilterTypes();
+                    opt = Convert.ToInt32(Console.ReadLine());
+                    
+                    client.ViewPolicies(getFilterType(opt));
 
-                    if (client != null)
-                    {
-                        string type = ViewFilters();
-                        client.ViewPolicies(type);
+                    Console.WriteLine();
+                    Console.Write("Enter policy no. to view: ");
+                    string id = Console.ReadLine();
 
-                        Console.WriteLine();
-                        Console.Write("Enter policy no. to view: ");
-                        string id = Console.ReadLine();
+                    Policy p = client.FindPolicy(id);
 
-                        Policy p = client.FindPolicy(id);
-
-                        PolicyMenu(p);
-                    }
+                    PolicyMenu(p);
                 }
+                // Filter by Agent
                 else if (opt == 2)
                 {
                     Agent agent = null;
@@ -380,6 +356,32 @@ namespace AOOAD_Ass
                     }
                 }
             }
+            // View a specific policy
+            else if (opt == 3)
+            {
+
+            }
         }
+        static void displayFilterTypes()
+        {
+            Console.WriteLine("------------ Filter Types~ -------------");
+            Console.WriteLine("[1] Existing");
+            Console.WriteLine("[2] Terminated");
+            Console.WriteLine("[3] Matured");
+            Console.Write("Option: ");
+        }
+        static string getFilterType(int opt)
+        {
+            string type = "";
+            if (opt == 1)
+                type = "Existing";
+            else if (opt == 2)
+                type = "Terminated";
+            else if (opt == 3)
+                type = "Matured";
+            return type;
+        }
+
+
     }
 }
