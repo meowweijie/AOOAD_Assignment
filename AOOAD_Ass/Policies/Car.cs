@@ -8,15 +8,16 @@ namespace AOOAD_Ass.Policies
 {
     class Car:Policy
     {
-        public Car() { }
-        public Car(Policy p)
+        public Car():base()
         {
             
         }
 
         public override float CalculatePayout()
         {
-            return 0;
+            float x = 0;
+            //implementation
+            return x;
         }
     }
 }
