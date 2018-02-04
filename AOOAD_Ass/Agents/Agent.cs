@@ -27,6 +27,8 @@ namespace AOOAD_Ass.Agents
         }
 
         private PolicyCollection ownedPolicies = new PolicyCollection();
+
+
         //Methods
         public void ViewPolicies(string type)
         {

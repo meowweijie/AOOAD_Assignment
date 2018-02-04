@@ -49,7 +49,7 @@ namespace AOOAD_Ass
             }
             else if (option == 2)
             {
-                viewPolicies();
+                ViewPolicies();
             }
         }
 
@@ -259,7 +259,7 @@ namespace AOOAD_Ass
             }
             Console.ReadKey();
         }
-        static void viewPolicies()
+        static void ViewPolicies()
         {
             int opt;
             Console.WriteLine("-------------- View Policies ------------");
