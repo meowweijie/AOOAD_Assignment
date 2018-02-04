@@ -28,6 +28,16 @@ namespace AOOAD_Ass.Agents
 
         private PolicyCollection ownedPolicies = new PolicyCollection();
         //Methods
+        public void ViewPolicies(string type)
+        {
+            ownedPolicies.DisplayPolicy(type);
+        }
+
+        public Policy FindPolicy(string id)
+        {
+            return ownedPolicies.SearchPolicy(id);
+        }
+
         public abstract float CalculateCommission();
         public void addPolicy(Policy p)
         {
