@@ -8,6 +8,16 @@ namespace AOOAD_Ass.Agents
 {
     class NormalAgent : Agent
     {
+
+        public NormalAgent() : base()
+        {
+
+        }
+
+        public NormalAgent(string name, float commission) : base(name, commission)
+        {
+
+        }
         public override float CalculateCommission()
         {
             float commission = 0;

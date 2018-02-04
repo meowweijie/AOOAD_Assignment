@@ -27,14 +27,12 @@ namespace AOOAD_Ass
 
             initRiderList(RiderList);
             initClientList();
-            foreach (Client c in ClientList)
-                Console.WriteLine("ClientNo is: " + c.ClientNo);
+            initPolicyList();
+            initAgentList();
 
             Medical mpolicy = new Medical();
             Travel tpolicy = new Travel();
             Car cpolicy = new Car();
-
-
 
             //Main Menu
             int option;
@@ -89,12 +87,26 @@ namespace AOOAD_Ass
 
         static void initClientList()
         {
-            Client c1 = new Client("Timmy", "This Street Blk 20", "12345678", new PolicyCollection());
-            Client c2 = new Client("Rick", "Rick Street Blk 69", "11111111", new PolicyCollection());
-            Client c3 = new Client("Morty", "Rick Street Blk 69", "22222222", new PolicyCollection());
-            ClientList.Add(c1);
-            ClientList.Add(c2);
-            ClientList.Add(c3);
+            ClientList.Add(new Client("Timmy", "This Street Blk 20", "12345678", new PolicyCollection()));
+            ClientList.Add(new Client("Rick", "Rick Street Blk 69", "11111111", new PolicyCollection()));
+            ClientList.Add(new Client("Morty", "Rick Street Blk 69", "22222222", new PolicyCollection()));
+            ClientList.Add(new Client("Eevee", "Road 32 Blk 69", "33333333", new PolicyCollection()));
+            ClientList.Add(new Client("Ash", "Pallet Town Blk 1", "44444444", new PolicyCollection()));
+        }
+
+        static void initAgentList()
+        {
+            AgentList.Add(new JuniorAgent("Henry", 420));
+            AgentList.Add(new NormalAgent("Tim", 600));
+            AgentList.Add(new SeniorAgent("James", 1337));
+            AgentList.Add(new SeniorAgent("Help", 911));
+        }
+        static void initPolicyList()
+        {
+            PolicyList.Add(new Car("Hehe xd", Convert.ToDateTime("31-Dec-18"), Convert.ToDateTime("31-Dec-18"), new List<Rider>(), false, true, 1000));
+            PolicyList.Add(new Car("I like tide pods", Convert.ToDateTime("31-Dec-18"), Convert.ToDateTime("31-Dec-18"), new List<Rider>(), false, true, 2000));
+            PolicyList.Add(new Car(":)", Convert.ToDateTime("31-Dec-18"), Convert.ToDateTime("31-Dec-18"), new List<Rider>(), false, false, 5000));
+            PolicyList.Add(new Car("Everything is gonna be fine", Convert.ToDateTime("31-Dec-18"), Convert.ToDateTime("31-Dec-18"), new List<Rider>(), false, false, 9999));
         }
 
         static void CreatePolicy(List<Policy> policyList, List<Rider> riderList)
