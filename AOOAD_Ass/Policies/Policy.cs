@@ -201,7 +201,5 @@ namespace AOOAD_Ass.Policies
                 Console.WriteLine("Invalid option.");
             }
         }
-
-
     }
 }

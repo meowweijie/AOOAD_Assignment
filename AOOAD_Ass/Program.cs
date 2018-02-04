@@ -33,7 +33,7 @@ namespace AOOAD_Ass
             Medical mpolicy = new Medical();
             Travel tpolicy = new Travel();
             Car cpolicy = new Car();
-
+            ReadMe();
             //Main 
             int option;
             try
@@ -107,6 +107,7 @@ namespace AOOAD_Ass
             AgentList.Add(new NormalAgent("Tim", 600, new PolicyCollection()));
             AgentList.Add(new SeniorAgent("James", 1337, new PolicyCollection()));
             AgentList.Add(new SeniorAgent("Help", 911, new PolicyCollection()));
+            AgentList.Add(new JuniorAgent("Weijie", 9999, new PolicyCollection()));
         }
         static void initPolicyList()
         {
@@ -421,6 +422,18 @@ namespace AOOAD_Ass
             Policy p = new Medical();
             M.addPolicy(p);
             M.editPolicy(p);
+        }
+
+        static void ReadMe()
+        {
+            Console.WriteLine("----------------- READ ME --------------------");
+            Console.WriteLine("The Customers, Agents and Policies all have a string called ClientNo, AgentNo, PolicyNo");
+            Console.WriteLine("Each ID of them have a letter and 4 digits");
+            Console.WriteLine("Current existing ClientNo are C0001, C0002, C0003, C0004, C0005");
+            Console.WriteLine("Current existing AgentNo are A0001, A0002, A0003, A0004, A0005");
+            Console.WriteLine("Current existing PolicyNo are P0001, P0002, P0003, P0004, P0005, P0006");
+            Console.WriteLine("End of README File");
+            Console.WriteLine("----------------------------------------------");
         }
     }
 }
