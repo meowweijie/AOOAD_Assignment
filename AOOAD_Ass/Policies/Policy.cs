@@ -37,7 +37,7 @@ namespace AOOAD_Ass.Policies
         //Constructor
         public Policy()
         {
-            PolicyNo = string.Format("S{0:0000}", policyCounter);
+            PolicyNo = string.Format("P{0:0000}", policyCounter);
             activeState = new Active(this);
             lapsedState = new Lapsed(this);
             terminatedState = new Terminated(this);
