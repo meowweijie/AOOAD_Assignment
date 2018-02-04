@@ -13,13 +13,17 @@ namespace AOOAD_Ass
 {
     class Program
     {
+        static List<Policy> PolicyList;
+        static List<Client> ClientList;
+        static List<Agent> AgentList;
+        static List<Rider> RiderList;
         static void Main(string[] args)
         {
             // Test data
-            List<Policy> PolicyList = new List<Policy>();
-            List<Client> ClientList = new List<Client>();
-            List<Agent> AgentList = new List<Agent>();
-            List<Rider> RiderList = new List<Rider>();
+            PolicyList = new List<Policy>();
+            ClientList = new List<Client>();
+            AgentList = new List<Agent>();
+            RiderList = new List<Rider>();
 
             initRiderList(RiderList);
 
@@ -27,110 +31,22 @@ namespace AOOAD_Ass
             Travel tpolicy = new Travel();
             Car cpolicy = new Car();
 
-            CreatePolicy(PolicyList, RiderList);            
+                       
 
             //Main Menu
             int option;
-            do
+            MainMenu();
+            option = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine();
+
+            if (option == 1)
             {
-                MainMenu();
-                option = Convert.ToInt32(Console.ReadLine());
-                Console.WriteLine();
+                CreatePolicy(PolicyList, RiderList);
+            }
+            else if (option == 2)
+            {
 
-                if (option == 1)
-                {
-
-                }
-                else if (option == 2)
-                {
-                    
-                    int opt;
-                    Console.WriteLine("View Policies options:");
-                    Console.WriteLine("1. View all policies");
-                    Console.WriteLine("2. Filter Policies");
-                    Console.WriteLine("3. View a specific policy");
-                    opt = Convert.ToInt32(Console.ReadLine());
-                    Console.WriteLine();
-
-                    if (opt == 1)
-                    {
-                        //Implementation
-                        Console.WriteLine("All policies in system is displayed.");
-                    }
-                    else if (opt == 2)
-                    {
-                        Console.WriteLine("1. Client");
-                        Console.WriteLine("2. Agent");
-                        opt = Convert.ToInt32(Console.ReadLine());
-                        Console.WriteLine();
-
-                        if (opt == 1)
-                        {
-                            Client client = null;
-                            string user = Convert.ToString(Console.ReadLine());
-                            for (int i = 0; i<ClientList.Count;i++)
-                            {
-                                if(ClientList[i].ClientNo==user)
-                                {
-                                    client = ClientList[i];
-                                }
-                            }
-
-                            if(client != null)
-                            {
-                                string type = ViewFilters();
-                                client.ViewPolicies(type);
-
-                                Console.WriteLine();
-                                Console.Write("Enter policy no. to view: ");
-                                string id = Console.ReadLine();
-
-                                Policy p = client.FindPolicy(id);
-
-                                PolicyMenu(p);
-                            }
-
-                            
-
-                        }
-                        else if (opt == 2)
-                        {
-                            Agent agent = null;
-                            string user = Convert.ToString(Console.ReadLine());
-                            for (int i = 0; i < AgentList.Count; i++)
-                            {
-                                if (AgentList[i].AgentNo == user)
-                                {
-                                    agent = AgentList[i];
-                                }
-                            }
-
-                            if (agent != null)
-                            {
-                                string type = ViewFilters();
-                                agent.ViewPolicies(type);
-
-                                Console.WriteLine();
-                                Console.Write("Enter policy no. to view: ");
-                                string id = Console.ReadLine();
-                                Policy p =  agent.FindPolicy(id);
-
-                                PolicyMenu(p);
-                            }
-
-                            
-
-                        }
-                    }
-                    else if (opt == 3)
-                    {
-
-                    }
-                }
-
-
-            } while (option != 0);
-
+            }
         }
 
         static void MainMenu()
@@ -387,6 +303,82 @@ namespace AOOAD_Ass
             else
             {
                 return "";
+            }
+        }
+
+        static void viewPolicies()
+        {
+            int opt;
+            Console.WriteLine("View Policies options:");
+            Console.WriteLine("1. View all policies");
+            Console.WriteLine("2. Filter Policies");
+            Console.WriteLine("3. View a specific policy");
+            opt = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine();
+
+            if (opt == 1)
+            {
+                //Implementation
+                Console.WriteLine("All policies in system is displayed.");
+            }
+            else if (opt == 2)
+            {
+                Console.WriteLine("1. Client");
+                Console.WriteLine("2. Agent");
+                opt = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine();
+
+                if (opt == 1)
+                {
+                    Client client = null;
+                    string user = Convert.ToString(Console.ReadLine());
+                    for (int i = 0; i < ClientList.Count; i++)
+                    {
+                        if (ClientList[i].ClientNo == user)
+                        {
+                            client = ClientList[i];
+                        }
+                    }
+
+                    if (client != null)
+                    {
+                        string type = ViewFilters();
+                        client.ViewPolicies(type);
+
+                        Console.WriteLine();
+                        Console.Write("Enter policy no. to view: ");
+                        string id = Console.ReadLine();
+
+                        Policy p = client.FindPolicy(id);
+
+                        PolicyMenu(p);
+                    }
+                }
+                else if (opt == 2)
+                {
+                    Agent agent = null;
+                    string user = Convert.ToString(Console.ReadLine());
+                    for (int i = 0; i < AgentList.Count; i++)
+                    {
+                        if (AgentList[i].AgentNo == user)
+                        {
+                            agent = AgentList[i];
+                        }
+                    }
+
+                    if (agent != null)
+                    {
+                        string type = ViewFilters();
+                        agent.ViewPolicies(type);
+
+                        Console.WriteLine();
+                        Console.Write("Enter policy no. to view: ");
+                        string id = Console.ReadLine();
+                        Policy p = agent.FindPolicy(id);
+
+                        PolicyMenu(p);
+                    }
+                }
             }
         }
     }
